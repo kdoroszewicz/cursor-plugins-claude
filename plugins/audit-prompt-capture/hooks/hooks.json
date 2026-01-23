@@ -1,0 +1,172 @@
+{
+  "$schema": "https://cursor.com/schemas/hooks.json",
+  "hooks": [
+    {
+      "name": "audit-pre-prompt",
+      "description": "Capture and audit prompts before they are sent to the model",
+      "trigger": "pre-prompt",
+      "command": "node ./scripts/audit-capture.js pre-prompt",
+      "enabled": true,
+      "timeout": 5000,
+      "env": {
+        "AUDIT_HOOK_TYPE": "pre-prompt"
+      }
+    },
+    {
+      "name": "audit-post-prompt",
+      "description": "Capture and audit prompts after they are processed",
+      "trigger": "post-prompt",
+      "command": "node ./scripts/audit-capture.js post-prompt",
+      "enabled": true,
+      "timeout": 5000,
+      "env": {
+        "AUDIT_HOOK_TYPE": "post-prompt"
+      }
+    },
+    {
+      "name": "audit-pre-response",
+      "description": "Capture model responses before they are displayed",
+      "trigger": "pre-response",
+      "command": "node ./scripts/audit-capture.js pre-response",
+      "enabled": true,
+      "timeout": 5000,
+      "env": {
+        "AUDIT_HOOK_TYPE": "pre-response"
+      }
+    },
+    {
+      "name": "audit-post-response",
+      "description": "Capture and audit complete model responses",
+      "trigger": "post-response",
+      "command": "node ./scripts/audit-capture.js post-response",
+      "enabled": true,
+      "timeout": 5000,
+      "env": {
+        "AUDIT_HOOK_TYPE": "post-response"
+      }
+    },
+    {
+      "name": "audit-pre-tool-call",
+      "description": "Capture tool calls before execution",
+      "trigger": "pre-tool-call",
+      "command": "node ./scripts/audit-capture.js pre-tool-call",
+      "enabled": true,
+      "timeout": 5000,
+      "env": {
+        "AUDIT_HOOK_TYPE": "pre-tool-call"
+      }
+    },
+    {
+      "name": "audit-post-tool-call",
+      "description": "Capture tool call results after execution",
+      "trigger": "post-tool-call",
+      "command": "node ./scripts/audit-capture.js post-tool-call",
+      "enabled": true,
+      "timeout": 5000,
+      "env": {
+        "AUDIT_HOOK_TYPE": "post-tool-call"
+      }
+    },
+    {
+      "name": "audit-pre-file-edit",
+      "description": "Capture file edits before they are applied",
+      "trigger": "pre-file-edit",
+      "command": "node ./scripts/audit-capture.js pre-file-edit",
+      "pattern": "**/*",
+      "enabled": true,
+      "timeout": 5000,
+      "env": {
+        "AUDIT_HOOK_TYPE": "pre-file-edit"
+      }
+    },
+    {
+      "name": "audit-post-file-edit",
+      "description": "Capture file edits after they are applied",
+      "trigger": "post-file-edit",
+      "command": "node ./scripts/audit-capture.js post-file-edit",
+      "pattern": "**/*",
+      "enabled": true,
+      "timeout": 5000,
+      "env": {
+        "AUDIT_HOOK_TYPE": "post-file-edit"
+      }
+    },
+    {
+      "name": "audit-pre-command",
+      "description": "Capture shell commands before execution",
+      "trigger": "pre-command",
+      "command": "node ./scripts/audit-capture.js pre-command",
+      "enabled": true,
+      "timeout": 5000,
+      "env": {
+        "AUDIT_HOOK_TYPE": "pre-command"
+      }
+    },
+    {
+      "name": "audit-post-command",
+      "description": "Capture shell command results after execution",
+      "trigger": "post-command",
+      "command": "node ./scripts/audit-capture.js post-command",
+      "enabled": true,
+      "timeout": 5000,
+      "env": {
+        "AUDIT_HOOK_TYPE": "post-command"
+      }
+    },
+    {
+      "name": "audit-session-start",
+      "description": "Capture session start events",
+      "trigger": "session-start",
+      "command": "node ./scripts/audit-capture.js session-start",
+      "enabled": true,
+      "timeout": 5000,
+      "env": {
+        "AUDIT_HOOK_TYPE": "session-start"
+      }
+    },
+    {
+      "name": "audit-session-end",
+      "description": "Capture session end events",
+      "trigger": "session-end",
+      "command": "node ./scripts/audit-capture.js session-end",
+      "enabled": true,
+      "timeout": 5000,
+      "env": {
+        "AUDIT_HOOK_TYPE": "session-end"
+      }
+    },
+    {
+      "name": "audit-context-attach",
+      "description": "Capture context attachments (files, URLs, etc.)",
+      "trigger": "context-attach",
+      "command": "node ./scripts/audit-capture.js context-attach",
+      "enabled": true,
+      "timeout": 5000,
+      "env": {
+        "AUDIT_HOOK_TYPE": "context-attach"
+      }
+    },
+    {
+      "name": "audit-model-switch",
+      "description": "Capture model switching events",
+      "trigger": "model-switch",
+      "command": "node ./scripts/audit-capture.js model-switch",
+      "enabled": true,
+      "timeout": 5000,
+      "env": {
+        "AUDIT_HOOK_TYPE": "model-switch"
+      }
+    },
+    {
+      "name": "audit-error",
+      "description": "Capture error events",
+      "trigger": "error",
+      "command": "node ./scripts/audit-capture.js error",
+      "enabled": true,
+      "timeout": 5000,
+      "env": {
+        "AUDIT_HOOK_TYPE": "error"
+      }
+    }
+  ]
+}

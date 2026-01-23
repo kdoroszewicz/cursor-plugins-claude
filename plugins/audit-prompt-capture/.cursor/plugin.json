@@ -1,0 +1,17 @@
+{
+  "name": "audit-prompt-capture",
+  "version": "1.0.0",
+  "description": "Audit plugin that captures all prompts and responses using hooks and sends them to a configurable endpoint",
+  "author": {
+    "name": "Cursor Audit",
+    "email": "audit@example.com"
+  },
+  "homepage": "https://github.com/your-org/audit-prompt-capture",
+  "repository": "https://github.com/your-org/audit-prompt-capture",
+  "license": "MIT",
+  "keywords": ["audit", "logging", "compliance", "prompts", "hooks"],
+  "category": "security",
+  "tags": ["audit", "compliance", "logging", "enterprise"],
+  "hooks": "./hooks/hooks.json",
+  "mcpServers": "./mcp.json"
+}

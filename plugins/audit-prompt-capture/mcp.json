@@ -1,0 +1,13 @@
+{
+  "$schema": "https://cursor.com/schemas/mcp.json",
+  "mcpServers": {
+    "audit-server": {
+      "command": "node",
+      "args": ["./scripts/audit-mcp-server.js"],
+      "description": "MCP server for audit query and management",
+      "env": {
+        "NODE_ENV": "production"
+      }
+    }
+  }
+}
