@@ -1,0 +1,35 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Node modules (for plugins with JS/TS)
+node_modules/
+
+# Python (for plugins with Python)
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Local plugin settings
+*.local.md
+*.local.json
+
+# Build outputs
+dist/
+build/
+
+# Logs
+*.log
