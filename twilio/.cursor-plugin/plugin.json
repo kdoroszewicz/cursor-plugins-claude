@@ -1,0 +1,29 @@
+{
+  "name": "twilio",
+  "version": "1.0.0",
+  "description": "Cursor plugin for Twilio \u2014 SMS, Voice, WhatsApp, Verify, and communications APIs",
+  "author": {
+    "name": "Cursor",
+    "email": "plugins@cursor.com"
+  },
+  "homepage": "https://github.com/cursor/plugins",
+  "repository": "https://github.com/cursor/plugins",
+  "license": "MIT",
+  "keywords": [
+    "twilio",
+    "sms",
+    "voice",
+    "whatsapp",
+    "communications",
+    "verify"
+  ],
+  "category": "saas",
+  "tags": [
+    "communications",
+    "sms",
+    "voice"
+  ],
+  "logo": "./twilio.svg",
+  "skills": "./skills/",
+  "mcpServers": "./mcp.json"
+}

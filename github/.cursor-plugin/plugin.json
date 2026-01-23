@@ -1,0 +1,29 @@
+{
+  "name": "github",
+  "version": "1.0.0",
+  "description": "Cursor plugin for GitHub \u2014 Actions, API, CLI, Pull Requests, and repository management",
+  "author": {
+    "name": "Cursor",
+    "email": "plugins@cursor.com"
+  },
+  "homepage": "https://github.com/cursor/plugins",
+  "repository": "https://github.com/cursor/plugins",
+  "license": "MIT",
+  "keywords": [
+    "github",
+    "git",
+    "actions",
+    "ci-cd",
+    "pull-requests",
+    "api"
+  ],
+  "category": "developer-tools",
+  "tags": [
+    "version-control",
+    "ci-cd",
+    "collaboration"
+  ],
+  "logo": "./github.svg",
+  "skills": "./skills/",
+  "mcpServers": "./mcp.json"
+}

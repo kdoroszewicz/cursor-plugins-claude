@@ -1,0 +1,28 @@
+{
+  "name": "docker",
+  "version": "1.0.0",
+  "description": "Cursor plugin for Docker \u2014 Dockerfiles, Compose, multi-stage builds, and container best practices",
+  "author": {
+    "name": "Cursor",
+    "email": "plugins@cursor.com"
+  },
+  "homepage": "https://github.com/cursor/plugins",
+  "repository": "https://github.com/cursor/plugins",
+  "license": "MIT",
+  "keywords": [
+    "docker",
+    "containers",
+    "dockerfile",
+    "compose",
+    "devops"
+  ],
+  "category": "developer-tools",
+  "tags": [
+    "containers",
+    "devops",
+    "infrastructure"
+  ],
+  "logo": "./docker.svg",
+  "skills": "./skills/",
+  "mcpServers": "./mcp.json"
+}
