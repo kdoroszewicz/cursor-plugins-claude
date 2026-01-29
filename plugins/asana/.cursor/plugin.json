@@ -1,0 +1,15 @@
+{
+  "name": "asana",
+  "version": "1.0.0",
+  "description": "Asana MCP server integration for task and project management",
+  "author": {
+    "name": "Cursor Plugins"
+  },
+  "homepage": "https://developers.asana.com/docs/using-asanas-mcp-server",
+  "repository": "https://github.com/Asana/asana-mcp-server",
+  "license": "MIT",
+  "keywords": ["asana", "mcp", "project-management", "tasks"],
+  "category": "integrations",
+  "tags": ["productivity", "project-management"],
+  "mcpServers": "./mcp.json"
+}

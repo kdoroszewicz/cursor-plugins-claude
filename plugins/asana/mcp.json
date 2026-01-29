@@ -1,0 +1,13 @@
+{
+  "$schema": "https://cursor.com/schemas/mcp.json",
+  "mcpServers": {
+    "asana": {
+      "command": "npx",
+      "args": ["-y", "@asana/mcp-server"],
+      "description": "Asana MCP server for task and project management",
+      "env": {
+        "ASANA_ACCESS_TOKEN": "${ASANA_ACCESS_TOKEN}"
+      }
+    }
+  }
+}
