@@ -1,0 +1,18 @@
+{
+  "name": "firebase",
+  "version": "1.0.0",
+  "description": "Cursor plugin for Firebase — Firestore, Authentication, Cloud Functions, Hosting, and Storage",
+  "author": { "name": "Cursor", "email": "plugins@cursor.com" },
+  "homepage": "https://github.com/cursor/service-plugin-generation",
+  "repository": "https://github.com/cursor/service-plugin-generation",
+  "license": "MIT",
+  "keywords": ["firebase", "firestore", "cloud-functions", "authentication", "google-cloud"],
+  "category": "backend",
+  "tags": ["baas", "google-cloud", "realtime"],
+  "agents": "./agents/",
+  "skills": "./skills/",
+  "rules": "./rules/",
+  "hooks": "./hooks/hooks.json",
+  "mcpServers": "./mcp.json",
+  "extensions": "./extensions/"
+}
