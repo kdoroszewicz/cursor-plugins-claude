@@ -1,6 +1,9 @@
 ---
 description: Best practices for Twilio communications integration — SDK usage, credential management, SMS/Voice/WhatsApp patterns, and error handling
-globs: **/*.ts, **/*.js
+globs:
+  - "**/*.ts"
+  - "**/*.js"
+alwaysApply: false
 ---
 
 # Twilio Integration Best Practices

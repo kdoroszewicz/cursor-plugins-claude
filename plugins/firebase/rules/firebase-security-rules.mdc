@@ -1,6 +1,10 @@
 ---
 description: Firebase security rules best practices for Firestore and Cloud Storage
-globs: ["firestore.rules", "storage.rules", "**/*.rules"]
+globs:
+  - "firestore.rules"
+  - "storage.rules"
+  - "**/*.rules"
+alwaysApply: false
 ---
 
 # Firebase Security Rules

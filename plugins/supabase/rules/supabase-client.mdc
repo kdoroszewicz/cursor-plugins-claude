@@ -1,6 +1,11 @@
 ---
 description: Best practices for Supabase client usage in TypeScript and JavaScript projects
-globs: ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx"]
+globs:
+  - "**/*.ts"
+  - "**/*.tsx"
+  - "**/*.js"
+  - "**/*.jsx"
+alwaysApply: false
 ---
 
 # Supabase Client Best Practices

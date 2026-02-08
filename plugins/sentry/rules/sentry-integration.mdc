@@ -1,6 +1,11 @@
 ---
 description: Best practices for integrating and using the Sentry SDK for error monitoring, context enrichment, and data hygiene.
-globs: **/*.ts, **/*.tsx, **/*.js, **/*.jsx
+globs:
+  - "**/*.ts"
+  - "**/*.tsx"
+  - "**/*.js"
+  - "**/*.jsx"
+alwaysApply: false
 ---
 
 # Sentry Integration Best Practices

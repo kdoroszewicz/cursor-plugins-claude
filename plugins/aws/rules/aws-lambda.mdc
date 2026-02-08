@@ -1,6 +1,11 @@
 ---
 description: AWS Lambda best practices for serverless function development
-globs: ["**/*.ts", "**/*.js", "**/lambda/**", "**/functions/**"]
+globs:
+  - "**/*.ts"
+  - "**/*.js"
+  - "**/lambda/**"
+  - "**/functions/**"
+alwaysApply: false
 ---
 
 # AWS Lambda Best Practices

@@ -1,6 +1,9 @@
 ---
 description: Best practices for handling Twilio webhooks — request signature validation, TwiML responses, status callbacks, and idempotent processing
-globs: **/webhook*.*,**/twilio*.*
+globs:
+  - "**/webhook*.*"
+  - "**/twilio*.*"
+alwaysApply: false
 ---
 
 # Twilio Webhook Handling Best Practices

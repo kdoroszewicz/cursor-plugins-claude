@@ -1,6 +1,11 @@
 ---
 description: Best practices for MongoDB schema design, document modeling, embedding vs referencing, validation, and data types
-globs: "**/*.ts", "**/*.js", "**/models/**", "**/schemas/**"
+globs:
+  - "**/*.ts"
+  - "**/*.js"
+  - "**/models/**"
+  - "**/schemas/**"
+alwaysApply: false
 ---
 
 # MongoDB Schema Design Best Practices

@@ -1,6 +1,11 @@
 ---
 description: LaunchDarkly SDK best practices for TypeScript and JavaScript projects
-globs: ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx"]
+globs:
+  - "**/*.ts"
+  - "**/*.tsx"
+  - "**/*.js"
+  - "**/*.jsx"
+alwaysApply: false
 ---
 
 # LaunchDarkly SDK Best Practices

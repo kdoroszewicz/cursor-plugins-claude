@@ -1,6 +1,12 @@
 ---
 description: AWS CDK best practices for infrastructure-as-code projects
-globs: ["**/cdk/**", "**/lib/**/*.ts", "**/bin/**/*.ts", "cdk.json", "**/infra/**/*.ts"]
+globs:
+  - "**/cdk/**"
+  - "**/lib/**/*.ts"
+  - "**/bin/**/*.ts"
+  - "cdk.json"
+  - "**/infra/**/*.ts"
+alwaysApply: false
 ---
 
 # AWS CDK Best Practices

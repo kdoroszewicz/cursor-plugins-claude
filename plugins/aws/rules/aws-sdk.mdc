@@ -1,6 +1,9 @@
 ---
 description: AWS SDK v3 best practices for TypeScript and JavaScript projects
-globs: ["**/*.ts", "**/*.js"]
+globs:
+  - "**/*.ts"
+  - "**/*.js"
+alwaysApply: false
 ---
 
 # AWS SDK v3 Best Practices

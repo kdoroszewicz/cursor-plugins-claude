@@ -1,6 +1,10 @@
 ---
 description: Best practices for Datadog APM instrumentation, distributed tracing, custom spans, and unified service tagging.
-globs: **/*.ts, **/*.js, **/*.py
+globs:
+  - "**/*.ts"
+  - "**/*.js"
+  - "**/*.py"
+alwaysApply: false
 ---
 
 # Datadog APM & Instrumentation Best Practices

@@ -1,6 +1,9 @@
 ---
 description: Best practices for handling Stripe webhooks — signature verification, idempotent processing, and event handling patterns
-globs: **/webhook*.*,**/stripe*.*
+globs:
+  - "**/webhook*.*"
+  - "**/stripe*.*"
+alwaysApply: false
 ---
 
 # Stripe Webhook Handling Best Practices

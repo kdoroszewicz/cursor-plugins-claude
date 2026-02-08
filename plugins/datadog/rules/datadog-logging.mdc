@@ -1,6 +1,10 @@
 ---
 description: Best practices for Datadog log management — structured logging, trace correlation, log pipelines, and data hygiene.
-globs: **/*.ts, **/*.js, **/*.py
+globs:
+  - "**/*.ts"
+  - "**/*.js"
+  - "**/*.py"
+alwaysApply: false
 ---
 
 # Datadog Logging Best Practices

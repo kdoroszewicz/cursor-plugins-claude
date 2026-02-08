@@ -1,6 +1,9 @@
 ---
 description: Best practices for Supabase database migrations and SQL schema management
-globs: ["supabase/migrations/**/*.sql", "**/*.sql"]
+globs:
+  - "supabase/migrations/**/*.sql"
+  - "**/*.sql"
+alwaysApply: false
 ---
 
 # Supabase Database Migration Best Practices

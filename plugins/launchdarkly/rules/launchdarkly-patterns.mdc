@@ -1,6 +1,10 @@
 ---
 description: Feature flag design patterns and strategies for LaunchDarkly
-globs: ["**/*.ts", "**/*.tsx", "**/*.js"]
+globs:
+  - "**/*.ts"
+  - "**/*.tsx"
+  - "**/*.js"
+alwaysApply: false
 ---
 
 # LaunchDarkly Feature Flag Patterns

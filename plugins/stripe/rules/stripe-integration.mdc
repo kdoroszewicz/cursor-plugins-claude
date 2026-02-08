@@ -1,6 +1,11 @@
 ---
 description: Best practices for Stripe payment integration — SDK usage, error handling, PCI compliance, and API patterns
-globs: **/*.ts, **/*.js, **/*.tsx, **/*.jsx
+globs:
+  - "**/*.ts"
+  - "**/*.js"
+  - "**/*.tsx"
+  - "**/*.jsx"
+alwaysApply: false
 ---
 
 # Stripe Integration Best Practices

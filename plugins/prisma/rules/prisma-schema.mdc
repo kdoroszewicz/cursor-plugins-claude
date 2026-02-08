@@ -1,6 +1,9 @@
 ---
 description: Best practices for Prisma schema design, model definitions, relations, and database mapping
-globs: prisma/schema.prisma, **/*.prisma
+globs:
+  - "prisma/schema.prisma"
+  - "**/*.prisma"
+alwaysApply: false
 ---
 
 # Prisma Schema Best Practices

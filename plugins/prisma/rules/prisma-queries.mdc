@@ -1,6 +1,10 @@
 ---
 description: Best practices for using Prisma Client queries in TypeScript and JavaScript applications
-globs: **/*.ts, **/*.tsx, **/*.js
+globs:
+  - "**/*.ts"
+  - "**/*.tsx"
+  - "**/*.js"
+alwaysApply: false
 ---
 
 # Prisma Query Best Practices
