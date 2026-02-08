@@ -70,9 +70,51 @@ The `.cursor/plugin.json` manifest is required and defines your plugin's metadat
 
 ## Available Plugins
 
-| Plugin        | Description                                              |
-|:--------------|:---------------------------------------------------------|
-| `boilerplate` | Complete example plugin demonstrating all components     |
+### Template
+
+| Plugin        | Category    | Description                                              |
+|:--------------|:------------|:---------------------------------------------------------|
+| `boilerplate` | utilities   | Complete example plugin demonstrating all components     |
+
+### Developer Tools
+
+| Plugin          | Category         | Description                                                              |
+|:----------------|:-----------------|:-------------------------------------------------------------------------|
+| `github`        | developer-tools  | GitHub Actions, API, CLI, Pull Requests, and repository management       |
+| `docker`        | developer-tools  | Dockerfiles, Compose, multi-stage builds, and container best practices   |
+| `launchdarkly`  | developer-tools  | Feature flags, experimentation, progressive rollouts, and targeting      |
+
+### Backend & Database
+
+| Plugin      | Category | Description                                                                  |
+|:------------|:---------|:-----------------------------------------------------------------------------|
+| `prisma`    | backend  | ORM, schema design, migrations, and database management                      |
+| `supabase`  | backend  | Postgres database, authentication, storage, realtime, and Edge Functions     |
+| `firebase`  | backend  | Firestore, Authentication, Cloud Functions, Hosting, and Storage             |
+| `mongodb`   | backend  | Schema design, queries, aggregation, indexes, and Mongoose ODM               |
+
+### Infrastructure & Deployment
+
+| Plugin        | Category        | Description                                                            |
+|:--------------|:----------------|:-----------------------------------------------------------------------|
+| `aws`         | infrastructure  | Lambda, S3, DynamoDB, CDK, IAM, and cloud infrastructure              |
+| `cloudflare`  | infrastructure  | Workers, Pages, R2, D1, KV, and edge computing                        |
+| `vercel`      | deployment      | Deployments, serverless functions, Edge Runtime, and project config    |
+
+### SaaS & APIs
+
+| Plugin    | Category | Description                                                              |
+|:----------|:---------|:-------------------------------------------------------------------------|
+| `stripe`  | saas     | Payment processing, subscriptions, webhooks, and billing integration     |
+| `twilio`  | saas     | SMS, Voice, WhatsApp, Verify, and communications APIs                    |
+| `slack`   | saas     | Bolt framework, Block Kit, Events API, and Slack app development         |
+
+### Observability
+
+| Plugin    | Category       | Description                                                          |
+|:----------|:---------------|:---------------------------------------------------------------------|
+| `sentry`  | observability  | Error monitoring, performance tracking, session replay, and alerting |
+| `datadog` | observability  | APM, logging, metrics, monitors, and observability                   |
 
 ## Installation
 
