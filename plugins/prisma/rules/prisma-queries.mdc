@@ -1,9 +1,9 @@
 ---
-description: Best practices for using Prisma Client in TypeScript and JavaScript applications
-globs: **/*.ts, **/*.js
+description: Best practices for using Prisma Client queries in TypeScript and JavaScript applications
+globs: **/*.ts, **/*.tsx, **/*.js
 ---
 
-# Prisma Client Best Practices
+# Prisma Query Best Practices
 
 ## Singleton Pattern
 
@@ -49,6 +49,24 @@ globs: **/*.ts, **/*.js
   ```
 - Never use both `select` and `include` at the same level — they are mutually exclusive.
 
+## Avoiding N+1 Queries
+
+- **Never** fetch related data inside loops — use `include` or `select` to eager-load:
+  ```typescript
+  // BAD: N+1 — 1 query for users + N queries for posts
+  const users = await prisma.user.findMany();
+  for (const user of users) {
+    const posts = await prisma.post.findMany({ where: { authorId: user.id } });
+  }
+
+  // GOOD: Single query with include
+  const users = await prisma.user.findMany({
+    include: { posts: true },
+  });
+  ```
+- Watch for `Promise.all` wrapping individual queries that could be a single `include`.
+- For GraphQL resolvers, use DataLoader patterns or Prisma's `relationLoadStrategy: 'join'`.
+
 ## Transactions
 
 - Use **interactive transactions** for multi-step operations that must be atomic:
@@ -68,7 +86,13 @@ globs: **/*.ts, **/*.js
     prisma.log.create({ data: logData }),
   ]);
   ```
-- Set appropriate `timeout` and `maxWait` for long-running transactions.
+- Set appropriate `timeout` and `maxWait` for long-running transactions:
+  ```typescript
+  await prisma.$transaction(
+    async (tx) => { /* ... */ },
+    { maxWait: 5000, timeout: 10000 }
+  );
+  ```
 
 ## Error Handling
 
@@ -88,6 +112,14 @@ globs: **/*.ts, **/*.js
         // Record not found
         throw new NotFoundError('User not found');
       }
+      if (error.code === 'P2003') {
+        // Foreign key constraint failed
+        throw new BadRequestError('Referenced record does not exist');
+      }
+      if (error.code === 'P2014') {
+        // Required relation violation
+        throw new BadRequestError('Required relation is missing');
+      }
     }
     throw error;
   }
@@ -97,6 +129,8 @@ globs: **/*.ts, **/*.js
   - `P2025` — Record not found
   - `P2003` — Foreign key constraint failed
   - `P2014` — Required relation violation
+  - `P2021` — Table does not exist
+  - `P2022` — Column does not exist
 
 ## Query Patterns
 
@@ -106,15 +140,50 @@ globs: **/*.ts, **/*.js
     where: { id },
   });
   ```
-- **Never** use `queryRawUnsafe` — it is vulnerable to SQL injection.
-- Use parameterized raw queries when raw SQL is needed:
+- **NEVER** use `queryRawUnsafe` — it is vulnerable to SQL injection. Always use parameterized raw queries:
   ```typescript
+  // GOOD: Parameterized — safe from SQL injection
   const result = await prisma.$queryRaw`
     SELECT * FROM "User" WHERE email = ${email}
   `;
+
+  // BAD: NEVER DO THIS — SQL injection risk
+  // const result = await prisma.$queryRawUnsafe(`SELECT * FROM "User" WHERE email = '${email}'`);
   ```
 
-## Pagination
+## Type-Safe Queries with Prisma.validator
+
+- Use `Prisma.validator` to create reusable, type-safe query fragments:
+  ```typescript
+  import { Prisma } from '@prisma/client';
+
+  // Define a reusable select object
+  const userWithPosts = Prisma.validator<Prisma.UserDefaultArgs>()({
+    include: { posts: true },
+  });
+
+  // Use it in queries
+  const user = await prisma.user.findUnique({
+    where: { id },
+    ...userWithPosts,
+  });
+
+  // Define reusable where conditions
+  const activeUserFilter = Prisma.validator<Prisma.UserWhereInput>()({
+    isActive: true,
+    deletedAt: null,
+  });
+
+  const activeUsers = await prisma.user.findMany({
+    where: activeUserFilter,
+  });
+  ```
+- Extract query return types with `Prisma.UserGetPayload`:
+  ```typescript
+  type UserWithPosts = Prisma.UserGetPayload<typeof userWithPosts>;
+  ```
+
+## Cursor-Based Pagination
 
 - Use **cursor-based pagination** for large datasets:
   ```typescript
@@ -137,6 +206,57 @@ globs: **/*.ts, **/*.js
   });
   ```
 - Use `updateMany` and `deleteMany` for bulk mutations.
+
+## Middleware for Logging and Soft-Delete
+
+- Use Prisma middleware for cross-cutting concerns like logging:
+  ```typescript
+  prisma.$use(async (params, next) => {
+    const before = Date.now();
+    const result = await next(params);
+    const after = Date.now();
+    console.log(`${params.model}.${params.action} took ${after - before}ms`);
+    return result;
+  });
+  ```
+- Implement soft-delete with middleware:
+  ```typescript
+  prisma.$use(async (params, next) => {
+    // Intercept delete and convert to soft-delete
+    if (params.action === 'delete') {
+      params.action = 'update';
+      params.args['data'] = { deletedAt: new Date() };
+    }
+    if (params.action === 'deleteMany') {
+      params.action = 'updateMany';
+      if (params.args.data !== undefined) {
+        params.args.data['deletedAt'] = new Date();
+      } else {
+        params.args['data'] = { deletedAt: new Date() };
+      }
+    }
+    return next(params);
+  });
+  ```
+- For Prisma 5+, prefer **client extensions** over middleware:
+  ```typescript
+  const prisma = new PrismaClient().$extends({
+    query: {
+      user: {
+        async findMany({ args, query }) {
+          args.where = { ...args.where, deletedAt: null };
+          return query(args);
+        },
+        async delete({ args }) {
+          return prisma.user.update({
+            ...args,
+            data: { deletedAt: new Date() },
+          });
+        },
+      },
+    },
+  });
+  ```
 
 ## Connection Management
 
