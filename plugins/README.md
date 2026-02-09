@@ -1,6 +1,6 @@
 # Cursor Plugins
 
-This directory contains plugins for Cursor. Each plugin provides skills and an MCP server integration.
+Each plugin provides skills and an MCP server integration following the [Cursor plugin specification](https://www.notion.so/cursorai/Building-Plugins-for-Cursor-2f7da74ef04580228fbbf20ecf477a55).
 
 ## Plugin Structure
 
@@ -37,16 +37,10 @@ plugin-name/
 | `terraform-iac` | devops | Abdeldjalil Sichaib | Terraform and cloud Infrastructure as Code best practices |
 | `solidity-web3` | blockchain | Alfredo Bonilla | Solidity smart contract security and development rules |
 | `github` | Developer Tools | Actions, API, CLI, Pull Requests, and repository management |
-| `sentry` | Observability | Error monitoring, performance tracking, and alerting |
 | `docker` | Developer Tools | Dockerfiles, Compose, multi-stage builds, and containers |
+| `launchdarkly` | Developer Tools | Feature flags, experimentation, and progressive rollouts |
+| `sentry` | Observability | Error monitoring, performance tracking, and alerting |
 | `firebase` | Backend | Firestore, Cloud Functions, Authentication, and Hosting |
+| `mongodb` | Backend | Schema design, queries, aggregation, indexes, and Mongoose |
 | `twilio` | SaaS | SMS, Voice, WhatsApp, Verify, and communications APIs |
 | `slack` | SaaS | Bolt framework, Block Kit, Events API, and app development |
-| `launchdarkly` | Developer Tools | Feature flags, experimentation, and progressive rollouts |
-| `mongodb` | Backend | Schema design, queries, aggregation, indexes, and Mongoose |
-
-## Installation
-
-```bash
-agent install <plugin-name>
-```
