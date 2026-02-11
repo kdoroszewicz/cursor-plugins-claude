@@ -14,11 +14,11 @@ Official Cursor plugins for popular developer tools, frameworks, and SaaS produc
 | [Planning](planning/) | Utilities | Scope, milestones, risk management, and execution planning |
 | [Code Review](code-review/) | Developer Tools | Correctness, security, regression checks, and actionable feedback |
 | [Web Browser](web-browser/) | Developer Tools | DevTools-driven debugging, network traces, and repro workflows |
-| [Teaching](teaching/) | Utilities | Concept explanations, exercises, and understanding checks |
 | [Documentation](documentation/) | Utilities | READMEs, API docs, architecture notes, and changelog writing |
 | [Presentation PPTX](presentation-pptx/) | Utilities | Narrative design, slide outlines, and PPTX-ready content |
 | [Learning](learning/) | Utilities | Skill maps, practice plans, and feedback loops |
 | [Cursor Dev Kit](cursor-dev-kit/) | Developer Tools | Internal-style workflows for CI, code review, shipping, and testing |
+| [Create Plugin](create-plugin/) | Developer Tools | Meta workflows for creating Cursor plugins with scaffolding and submission checks |
 
 ## Repository Structure
 
