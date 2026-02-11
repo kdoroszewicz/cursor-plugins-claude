@@ -4,7 +4,7 @@ Ralph Loop runs Cursor in a self-referential loop, feeding the same prompt back 
 
 ## How it works
 
-A Stop hook intercepts each time Cursor tries to finish. Instead of ending the session, the hook feeds the original prompt back. Cursor sees its own previous edits in the working tree and git history, iterates on them, and repeats. The prompt never changes. The code does.
+Two hooks drive the loop. An `afterAgentResponse` hook watches each response for a `<promise>` tag matching the completion phrase. A `stop` hook fires when Cursor finishes a turn. If the promise hasn't been detected and the iteration limit hasn't been reached, the stop hook sends the original prompt back as a `followup_message`, starting the next iteration. Cursor sees its own previous edits in the working tree and git history, iterates on them, and repeats. The prompt never changes. The code does.
 
 ## Installation
 

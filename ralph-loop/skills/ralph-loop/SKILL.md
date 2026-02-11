@@ -7,33 +7,48 @@ description: Start a Ralph Loop for iterative self-referential development. Use 
 
 ## Trigger
 
-The user wants to start a Ralph loop — an iterative development loop where the agent receives the same prompt repeatedly, seeing its own previous work each iteration, until a completion condition is met.
+The user wants to start a Ralph loop. An iterative development loop where the same prompt is fed back after every turn, and the agent sees its own previous work each iteration.
 
 ## Workflow
 
-1. Gather the user's task prompt text and optional flags:
-   - `--max-iterations N` — stop after N iterations (default: unlimited)
-   - `--completion-promise "TEXT"` — phrase the agent must output inside `<promise>` tags when the task is genuinely complete
+1. Gather the user's task prompt and optional parameters:
+   - `max_iterations` (number, default 0 for unlimited)
+   - `completion_promise` (text, or "null" if not set)
 
-2. Run the setup script with the collected arguments:
+2. Create the state file at `.cursor/ralph-loop.scratchpad.md` with this exact format:
 
-   ```bash
-   ./scripts/setup-ralph-loop.sh <PROMPT> [--max-iterations N] [--completion-promise "TEXT"]
+   ```markdown
+   ---
+   iteration: 1
+   max_iterations: <N or 0>
+   completion_promise: "<TEXT>" or null
+   ---
+
+   <the user's task prompt goes here>
    ```
 
-   This creates the state file at `.cursor/ralph-loop.scratchpad.md`.
+   Example:
+   ```markdown
+   ---
+   iteration: 1
+   max_iterations: 20
+   completion_promise: "COMPLETE"
+   ---
 
-3. Begin working on the task described in the prompt.
+   Build a REST API for todos with CRUD operations, input validation, and tests.
+   ```
 
-4. When the session tries to exit, the Stop hook (`hooks/stop-hook.sh`) intercepts and feeds the same prompt back automatically.
+3. Confirm to the user that the Ralph loop is active, then begin working on the task.
+
+4. The stop hook automatically intercepts each turn end and feeds the same prompt back as a followup message. You will see it prefixed with `[Ralph loop iteration N.]`.
 
 ## Guardrails
 
-- If a completion promise is set, you may ONLY output it when the statement is completely and unequivocally TRUE.
-- Do not output false promises to escape the loop, even if you think you're stuck or should exit for other reasons.
-- The loop is designed to continue until genuine completion. Trust the process.
-- Always recommend `--max-iterations` as a safety net to prevent runaway loops.
+- If a completion promise is set, you may ONLY output `<promise>TEXT</promise>` when the statement is completely and genuinely true.
+- Do not output false promises to escape the loop.
+- Always recommend setting `max_iterations` as a safety net.
+- Quote the `completion_promise` value in the YAML frontmatter if it contains special characters.
 
 ## Output
 
-After running the setup script, confirm to the user that the Ralph loop is active, then immediately begin working on the task.
+Confirm the loop is active (prompt, iteration limit, promise if set), then start working on the task immediately.

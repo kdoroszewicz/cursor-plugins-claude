@@ -1,177 +1,86 @@
 #!/bin/bash
 
-# Ralph Loop Stop Hook
-# Prevents session exit when a ralph-loop is active
-# Feeds the agent's output back as input to continue the loop
+# Ralph Loop stop hook.
+# When the agent finishes a turn, this hook decides whether to feed the
+# same prompt back for another iteration or let the session end.
+#
+# Cursor stop hook API:
+#   Input:  { "status": "completed"|"aborted"|"error", "loop_count": N, ...common }
+#   Output: { "followup_message": "<text>" }  to continue, or exit 0 with no output to stop
 
 set -euo pipefail
 
-# Read hook input from stdin (advanced stop hook API)
 HOOK_INPUT=$(cat)
 
-# Check if ralph-loop is active
-RALPH_STATE_FILE=".cursor/ralph-loop.scratchpad.md"
+PROJECT_DIR="${CURSOR_PROJECT_DIR:-.}"
+STATE_FILE="$PROJECT_DIR/.cursor/ralph-loop.scratchpad.md"
+DONE_FLAG="$PROJECT_DIR/.cursor/ralph-loop-done"
 
-if [[ ! -f "$RALPH_STATE_FILE" ]]; then
-  # No active loop - allow exit
+# No active loop. Let the session end.
+if [[ ! -f "$STATE_FILE" ]]; then
   exit 0
 fi
 
-# Parse markdown frontmatter (YAML between ---) and extract values
-FRONTMATTER=$(sed -n '/^---$/,/^---$/{ /^---$/d; p; }' "$RALPH_STATE_FILE")
+# Parse state file frontmatter
+FRONTMATTER=$(sed -n '/^---$/,/^---$/{ /^---$/d; p; }' "$STATE_FILE")
 ITERATION=$(echo "$FRONTMATTER" | grep '^iteration:' | sed 's/iteration: *//')
 MAX_ITERATIONS=$(echo "$FRONTMATTER" | grep '^max_iterations:' | sed 's/max_iterations: *//')
-# Extract completion_promise and strip surrounding quotes if present
 COMPLETION_PROMISE=$(echo "$FRONTMATTER" | grep '^completion_promise:' | sed 's/completion_promise: *//' | sed 's/^"\(.*\)"$/\1/')
 
-# Validate numeric fields before arithmetic operations
+# Validate iteration is numeric
 if [[ ! "$ITERATION" =~ ^[0-9]+$ ]]; then
-  echo "Warning: Ralph loop state file corrupted" >&2
-  echo "  File: $RALPH_STATE_FILE" >&2
-  echo "  Problem: 'iteration' field is not a valid number (got: '$ITERATION')" >&2
-  echo "" >&2
-  echo "  This usually means the state file was manually edited or corrupted." >&2
-  echo "  Ralph loop is stopping. Run /ralph-loop again to start fresh." >&2
-  rm "$RALPH_STATE_FILE"
+  echo "Ralph loop: state file corrupted (iteration: '$ITERATION'). Stopping." >&2
+  rm -f "$STATE_FILE" "$DONE_FLAG"
   exit 0
 fi
 
 if [[ ! "$MAX_ITERATIONS" =~ ^[0-9]+$ ]]; then
-  echo "Warning: Ralph loop state file corrupted" >&2
-  echo "  File: $RALPH_STATE_FILE" >&2
-  echo "  Problem: 'max_iterations' field is not a valid number (got: '$MAX_ITERATIONS')" >&2
-  echo "" >&2
-  echo "  This usually means the state file was manually edited or corrupted." >&2
-  echo "  Ralph loop is stopping. Run /ralph-loop again to start fresh." >&2
-  rm "$RALPH_STATE_FILE"
+  echo "Ralph loop: state file corrupted (max_iterations: '$MAX_ITERATIONS'). Stopping." >&2
+  rm -f "$STATE_FILE" "$DONE_FLAG"
   exit 0
 fi
 
-# Check if max iterations reached
+# Check if completion promise was detected by the afterAgentResponse hook
+if [[ -f "$DONE_FLAG" ]]; then
+  echo "Ralph loop: completion promise fulfilled at iteration $ITERATION." >&2
+  rm -f "$STATE_FILE" "$DONE_FLAG"
+  exit 0
+fi
+
+# Check max iterations
 if [[ $MAX_ITERATIONS -gt 0 ]] && [[ $ITERATION -ge $MAX_ITERATIONS ]]; then
-  echo "Ralph loop: Max iterations ($MAX_ITERATIONS) reached."
-  rm "$RALPH_STATE_FILE"
+  echo "Ralph loop: max iterations ($MAX_ITERATIONS) reached." >&2
+  rm -f "$STATE_FILE" "$DONE_FLAG"
   exit 0
 fi
 
-# Get transcript path from hook input
-TRANSCRIPT_PATH=$(echo "$HOOK_INPUT" | jq -r '.transcript_path')
-
-if [[ ! -f "$TRANSCRIPT_PATH" ]]; then
-  echo "Warning: Ralph loop transcript file not found" >&2
-  echo "  Expected: $TRANSCRIPT_PATH" >&2
-  echo "  This is unusual and may indicate an internal issue." >&2
-  echo "  Ralph loop is stopping." >&2
-  rm "$RALPH_STATE_FILE"
-  exit 0
-fi
-
-# Read last assistant message from transcript (JSONL format - one JSON per line)
-# First check if there are any assistant messages
-if ! grep -q '"role":"assistant"' "$TRANSCRIPT_PATH"; then
-  echo "Warning: Ralph loop found no assistant messages in transcript" >&2
-  echo "  Transcript: $TRANSCRIPT_PATH" >&2
-  echo "  This is unusual and may indicate a transcript format issue" >&2
-  echo "  Ralph loop is stopping." >&2
-  rm "$RALPH_STATE_FILE"
-  exit 0
-fi
-
-# Extract last assistant message with explicit error handling
-LAST_LINE=$(grep '"role":"assistant"' "$TRANSCRIPT_PATH" | tail -1)
-if [[ -z "$LAST_LINE" ]]; then
-  echo "Warning: Ralph loop failed to extract last assistant message" >&2
-  echo "  Ralph loop is stopping." >&2
-  rm "$RALPH_STATE_FILE"
-  exit 0
-fi
-
-# Parse JSON with error handling
-LAST_OUTPUT=$(echo "$LAST_LINE" | jq -r '
-  .message.content |
-  map(select(.type == "text")) |
-  map(.text) |
-  join("\n")
-' 2>&1)
-
-# Check if jq succeeded
-if [[ $? -ne 0 ]]; then
-  echo "Warning: Ralph loop failed to parse assistant message JSON" >&2
-  echo "  Error: $LAST_OUTPUT" >&2
-  echo "  This may indicate a transcript format issue" >&2
-  echo "  Ralph loop is stopping." >&2
-  rm "$RALPH_STATE_FILE"
-  exit 0
-fi
-
-if [[ -z "$LAST_OUTPUT" ]]; then
-  echo "Warning: Ralph loop assistant message contained no text content" >&2
-  echo "  Ralph loop is stopping." >&2
-  rm "$RALPH_STATE_FILE"
-  exit 0
-fi
-
-# Check for completion promise (only if set)
-if [[ "$COMPLETION_PROMISE" != "null" ]] && [[ -n "$COMPLETION_PROMISE" ]]; then
-  # Extract text from tags using Perl for multiline support
-  # -0777 slurps entire input, s flag makes . match newlines
-  # .*? is non-greedy (takes FIRST tag), whitespace normalized
-  PROMISE_TEXT=$(echo "$LAST_OUTPUT" | perl -0777 -pe 's/.*? (.*?)<\/promise>.*/$1/s; s/^\s+|\s+$//g; s/\s+/ /g' 2>/dev/null || echo "")
-
-  # Use = for literal string comparison (not pattern matching)
-  # == in [[ ]] does glob pattern matching which breaks with *, ?, [ characters
-  if [[ -n "$PROMISE_TEXT" ]] && [[ "$PROMISE_TEXT" = "$COMPLETION_PROMISE" ]]; then
-    echo "Ralph loop: Detected $COMPLETION_PROMISE "
-    rm "$RALPH_STATE_FILE"
-    exit 0
-  fi
-fi
-
-# Not complete - continue loop with SAME PROMPT
-NEXT_ITERATION=$((ITERATION + 1))
-
-# Extract prompt (everything after the closing ---)
-# Skip first --- line, skip until second --- line, then print everything after
-# Use i>=2 instead of i==2 to handle --- in prompt content
-PROMPT_TEXT=$(awk '/^---$/{i++; next} i>=2' "$RALPH_STATE_FILE")
+# Extract prompt text (everything after the closing --- in frontmatter)
+PROMPT_TEXT=$(awk '/^---$/{i++; next} i>=2' "$STATE_FILE")
 
 if [[ -z "$PROMPT_TEXT" ]]; then
-  echo "Warning: Ralph loop state file corrupted or incomplete" >&2
-  echo "  File: $RALPH_STATE_FILE" >&2
-  echo "  Problem: No prompt text found" >&2
-  echo "" >&2
-  echo "  This usually means:" >&2
-  echo "  - State file was manually edited" >&2
-  echo "  - File was corrupted during writing" >&2
-  echo "" >&2
-  echo "  Ralph loop is stopping. Run /ralph-loop again to start fresh." >&2
-  rm "$RALPH_STATE_FILE"
+  echo "Ralph loop: no prompt text found in state file. Stopping." >&2
+  rm -f "$STATE_FILE" "$DONE_FLAG"
   exit 0
 fi
 
-# Update iteration in frontmatter (portable across macOS and Linux)
-# Create temp file, then atomically replace
-TEMP_FILE="${RALPH_STATE_FILE}.tmp.$$"
-sed "s/^iteration: .*/iteration: $NEXT_ITERATION/" "$RALPH_STATE_FILE" > "$TEMP_FILE"
-mv "$TEMP_FILE" "$RALPH_STATE_FILE"
+# Increment iteration
+NEXT_ITERATION=$((ITERATION + 1))
+TEMP_FILE="${STATE_FILE}.tmp.$$"
+sed "s/^iteration: .*/iteration: $NEXT_ITERATION/" "$STATE_FILE" > "$TEMP_FILE"
+mv "$TEMP_FILE" "$STATE_FILE"
 
-# Build system message with iteration count and completion promise info
+# Build the followup message: iteration context + original prompt
 if [[ "$COMPLETION_PROMISE" != "null" ]] && [[ -n "$COMPLETION_PROMISE" ]]; then
-  SYSTEM_MSG="Ralph iteration $NEXT_ITERATION | To stop: output $COMPLETION_PROMISE (ONLY when statement is TRUE - do not lie to exit!)"
+  HEADER="[Ralph loop iteration $NEXT_ITERATION. To complete: output <promise>$COMPLETION_PROMISE</promise> ONLY when genuinely true.]"
 else
-  SYSTEM_MSG="Ralph iteration $NEXT_ITERATION | No completion promise set - loop runs infinitely"
+  HEADER="[Ralph loop iteration $NEXT_ITERATION.]"
 fi
 
-# Output JSON to block the stop and feed prompt back
-# The "reason" field contains the prompt that will be sent back to the agent
-jq -n \
-  --arg prompt "$PROMPT_TEXT" \
-  --arg msg "$SYSTEM_MSG" \
-  '{
-    "decision": "block",
-    "reason": $prompt,
-    "systemMessage": $msg
-  }'
+FOLLOWUP="$HEADER
 
-# Exit 0 for successful hook execution
+$PROMPT_TEXT"
+
+# Output followup_message to continue the loop
+jq -n --arg msg "$FOLLOWUP" '{"followup_message": $msg}'
+
 exit 0

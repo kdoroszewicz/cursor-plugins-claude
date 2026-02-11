@@ -1,14 +1,15 @@
 {
-  "description": "Ralph Loop plugin stop hook for self-referential loops",
+  "version": 1,
   "hooks": {
-    "Stop": [
+    "afterAgentResponse": [
       {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "./hooks/stop-hook.sh"
-          }
-        ]
+        "command": "./hooks/capture-response.sh"
+      }
+    ],
+    "stop": [
+      {
+        "command": "./hooks/stop-hook.sh",
+        "loop_limit": null
       }
     ]
   }
