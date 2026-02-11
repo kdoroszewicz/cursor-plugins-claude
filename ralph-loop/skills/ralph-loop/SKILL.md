@@ -15,7 +15,7 @@ The user wants to start a Ralph loop. An iterative development loop where the sa
    - `max_iterations` (number, default 0 for unlimited)
    - `completion_promise` (text, or "null" if not set)
 
-2. Create the state file at `.cursor/ralph-loop.scratchpad.md` with this exact format:
+2. Create the directory `.cursor/ralph/` if it doesn't exist, then write the state file at `.cursor/ralph/scratchpad.md` with this exact format:
 
    ```markdown
    ---

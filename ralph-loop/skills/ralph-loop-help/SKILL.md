@@ -38,7 +38,7 @@ Options:
 - `--completion-promise "TEXT"` — phrase to signal completion
 
 How it works:
-1. Creates `.cursor/ralph-loop.scratchpad.md` state file
+1. Creates `.cursor/ralph/scratchpad.md` state file
 2. Agent works on the task
 3. Stop hook intercepts exit and feeds the same prompt back
 4. Agent sees its previous work and iterates

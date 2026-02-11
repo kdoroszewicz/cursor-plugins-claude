@@ -13,8 +13,8 @@ set -euo pipefail
 HOOK_INPUT=$(cat)
 
 PROJECT_DIR="${CURSOR_PROJECT_DIR:-.}"
-STATE_FILE="$PROJECT_DIR/.cursor/ralph-loop.scratchpad.md"
-DONE_FLAG="$PROJECT_DIR/.cursor/ralph-loop-done"
+STATE_FILE="$PROJECT_DIR/.cursor/ralph/scratchpad.md"
+DONE_FLAG="$PROJECT_DIR/.cursor/ralph/done"
 
 # No active loop. Let the session end.
 if [[ ! -f "$STATE_FILE" ]]; then
