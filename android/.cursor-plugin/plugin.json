@@ -1,7 +1,7 @@
 {
   "name": "android",
   "version": "1.0.0",
-  "description": "Cursor plugin for Android development \u2014 Kotlin, Jetpack Compose, architecture, and testing",
+  "description": "Cursor plugin for Android development: Kotlin, Jetpack Compose, architecture, and testing",
   "author": {
     "name": "Cursor",
     "email": "plugins@cursor.com"

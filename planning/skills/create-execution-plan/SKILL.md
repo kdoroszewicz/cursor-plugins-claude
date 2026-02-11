@@ -3,7 +3,7 @@ name: create-execution-plan
 description: Convert goals into a scoped, sequenced, and risk-aware implementation plan
 ---
 
-# Create an Execution Plan
+# Create an execution plan
 
 ## Trigger
 

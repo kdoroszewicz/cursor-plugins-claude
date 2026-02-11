@@ -3,7 +3,7 @@ name: security-review
 description: Conduct a focused security review for changed code and integration boundaries
 ---
 
-# Conduct a Security Review
+# Conduct a security review
 
 ## Trigger
 

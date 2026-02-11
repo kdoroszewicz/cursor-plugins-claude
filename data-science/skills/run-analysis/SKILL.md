@@ -3,7 +3,7 @@ name: run-analysis
 description: Execute an analyst-first workflow from question framing through validated findings
 ---
 
-# Run Analysis
+# Run analysis
 
 ## Trigger
 

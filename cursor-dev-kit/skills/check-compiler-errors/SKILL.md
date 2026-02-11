@@ -3,7 +3,7 @@ name: check-compiler-errors
 description: Run compile and type-check commands and report failures
 ---
 
-# Check Compiler Errors
+# Check compiler errors
 
 ## Trigger
 

@@ -3,7 +3,7 @@ name: create-plugin-scaffold
 description: Create a new Cursor plugin scaffold with a valid manifest, component directories, and marketplace wiring. Use when starting a new plugin or adding a plugin to a multi-plugin repository.
 ---
 
-# Create Plugin Scaffold
+# Create plugin scaffold
 
 ## Trigger
 

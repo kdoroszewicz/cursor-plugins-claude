@@ -2,7 +2,7 @@
 alwaysApply: true
 ---
 
-# Planning Quality Gates
+# Planning quality gates
 
 1. Scope is explicit and out-of-scope is documented.
 2. Milestones are dependency-aware and testable.

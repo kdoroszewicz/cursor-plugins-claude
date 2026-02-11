@@ -3,7 +3,7 @@ name: draft-analysis-readout
 description: Convert validated findings into a stakeholder-ready readout with caveats and recommendations
 ---
 
-# Draft Analysis Readout
+# Draft analysis readout
 
 ## Trigger
 

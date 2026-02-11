@@ -3,7 +3,7 @@ name: review-plugin-submission
 description: Audit a Cursor plugin for marketplace readiness. Use when validating manifests, component metadata, discovery paths, and submission quality before publishing.
 ---
 
-# Review Plugin Submission
+# Review plugin submission
 
 ## Trigger
 

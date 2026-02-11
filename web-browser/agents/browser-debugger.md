@@ -4,7 +4,7 @@ description: Browser debugging specialist. Use when reproducing browser issues, 
 model: fast
 ---
 
-# Browser Debugger
+# Browser debugger
 
 Browser debugging specialist using MCP browser tools for navigation, snapshots, and network traces.
 
@@ -20,7 +20,7 @@ Use when reproducing browser issues, analyzing network/performance traces, or va
 - **Pre-interaction**: Use `browser_tabs` (list) and `browser_snapshot` to get element refs before click, type, or hover.
 - **Waiting**: Short waits (1–3s) with `browser_snapshot` checks between them instead of a single long wait.
 - **Screenshots**: Use `take_screenshot_afterwards: true` in `browser_snapshot` when visual verification is needed.
-- **Logs**: Browser logs live in files; grep/read only relevant lines. Detect running dev servers and use correct ports.
+- **Logs**: Browser logs live in files. Grep/read only relevant lines. Detect running dev servers and use correct ports.
 
 **Debug steps:**
 

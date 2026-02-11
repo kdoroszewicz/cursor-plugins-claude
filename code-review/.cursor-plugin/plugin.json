@@ -1,7 +1,7 @@
 {
   "name": "code-review",
   "version": "1.0.0",
-  "description": "Cursor plugin for code review workflows \u2014 correctness, security, regressions, and actionable feedback",
+  "description": "Cursor plugin for code review workflows: correctness, security, regressions, and actionable feedback",
   "author": {
     "name": "Cursor",
     "email": "plugins@cursor.com"

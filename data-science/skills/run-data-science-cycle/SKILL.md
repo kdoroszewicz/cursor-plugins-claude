@@ -3,7 +3,7 @@ name: run-data-science-cycle
 description: Run an analyst-first analysis loop from question framing through validated, decision-ready insights
 ---
 
-# Run a Data Science Cycle
+# Run a data science cycle
 
 ## Trigger
 
@@ -20,8 +20,8 @@ Need analyst-grade answers from data: exploratory analysis, trend/slice comparis
 
 ## Guardrails
 
-- Keep cells focused and readable; one analytical intent per notebook cell.
-- Keep transformations reproducible and ordered; move reusable logic to scripts when needed.
+- Keep cells focused and readable. One analytical intent per notebook cell.
+- Keep transformations reproducible and ordered. Move reusable logic to scripts when needed.
 - Track confounders and selection bias risks, not only metric movement.
 - Report uncertainty and practical effect size, not only point estimates.
 - Prefer simple baselines unless added complexity changes decisions.

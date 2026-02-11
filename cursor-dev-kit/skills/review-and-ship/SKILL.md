@@ -3,11 +3,11 @@ name: review-and-ship
 description: Run a structured review, close key issues, and ship changes via PR
 ---
 
-# Review and Ship
+# Review and ship
 
 ## Trigger
 
-Reviewing changes before shipping; need to close key issues and open/update PR.
+Reviewing changes before shipping. Close key issues and open/update PR.
 
 ## Workflow
 

@@ -1,4 +1,4 @@
-# Cursor Plugins
+# Cursor plugins
 
 Official Cursor plugins for popular developer tools, frameworks, and SaaS products. Each plugin is a standalone directory at the repository root with its own `.cursor-plugin/plugin.json` manifest.
 
@@ -20,7 +20,7 @@ Official Cursor plugins for popular developer tools, frameworks, and SaaS produc
 | [Cursor Dev Kit](cursor-dev-kit/) | Developer Tools | Internal-style workflows for CI, code review, shipping, and testing |
 | [Create Plugin](create-plugin/) | Developer Tools | Meta workflows for creating Cursor plugins with scaffolding and submission checks |
 
-## Repository Structure
+## Repository structure
 
 This is a multi-plugin marketplace repository. The root `.cursor-plugin/marketplace.json` lists all plugins, and each plugin has its own manifest:
 

@@ -3,7 +3,7 @@ name: create-milestone-plan
 description: Build a dependency-aware milestone plan with acceptance criteria
 ---
 
-# Create Milestone Plan
+# Create milestone plan
 
 ## Trigger
 

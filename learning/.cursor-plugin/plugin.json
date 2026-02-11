@@ -1,7 +1,7 @@
 {
   "name": "learning",
   "version": "1.0.0",
-  "description": "Cursor plugin for learning workflows \u2014 skill mapping, practice plans, and feedback loops",
+  "description": "Cursor plugin for learning workflows: skill mapping, practice plans, and feedback loops",
   "author": {
     "name": "Cursor",
     "email": "plugins@cursor.com"

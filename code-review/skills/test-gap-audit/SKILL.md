@@ -3,7 +3,7 @@ name: test-gap-audit
 description: Identify missing tests and propose a prioritized test plan for changed behavior
 ---
 
-# Audit Test Gaps
+# Audit test gaps
 
 ## Trigger
 

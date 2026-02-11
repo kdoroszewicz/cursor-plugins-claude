@@ -1,7 +1,7 @@
 {
   "name": "data-science",
   "version": "1.0.0",
-  "description": "Cursor plugin for analyst-first data science workflows \u2014 exploratory analysis, validation, and decision-ready reporting",
+  "description": "Cursor plugin for analyst-first data science workflows: exploratory analysis, validation, and decision-ready reporting",
   "author": {
     "name": "Cursor",
     "email": "plugins@cursor.com"

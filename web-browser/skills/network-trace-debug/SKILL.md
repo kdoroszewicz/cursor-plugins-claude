@@ -3,7 +3,7 @@ name: network-trace-debug
 description: Trace and debug request/response failures with structured network analysis
 ---
 
-# Network Trace Debug
+# Network trace debug
 
 ## Trigger
 
@@ -21,7 +21,7 @@ Use `browser_network_requests` for request/response inspection to track API call
 
 ## MCP
 
-Lock before interactions; unlock when done. See canonical browser docs for full lock/unlock sequence.
+Lock before interactions. Unlock when done. See canonical browser docs for full lock/unlock sequence.
 
 ## Guardrails
 

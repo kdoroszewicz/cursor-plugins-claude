@@ -3,7 +3,7 @@ name: analyze-web-performance
 description: Diagnose frontend performance bottlenecks using browser tools and reproducible metrics
 ---
 
-# Analyze Web Performance
+# Analyze web performance
 
 ## Trigger
 
@@ -19,11 +19,11 @@ Pages feel slow, interactions jank, or load times regress.
 
 ## Performance Profiling
 
-Use `browser_profile_start` and `browser_profile_stop` for CPU profiling with call stacks and timing data. Profile data is written to `~/.cursor/browser-logs/`: `cpu-profile-{timestamp}.json` (raw Chrome DevTools format) and `cpu-profile-{timestamp}-summary.md` (human-readable). When diagnosing performance, read the raw `.json` and cross-check with the summary; verify `profile.samples.length`, `profile.nodes[].hitCount`, and `profile.nodes[].callFrame.functionName` before making optimization recommendations.
+Use `browser_profile_start` and `browser_profile_stop` for CPU profiling with call stacks and timing data. Profile data is written to `~/.cursor/browser-logs/`: `cpu-profile-{timestamp}.json` (raw Chrome DevTools format) and `cpu-profile-{timestamp}-summary.md` (human-readable). When diagnosing performance, read the raw `.json` and cross-check with the summary. Verify `profile.samples.length`, `profile.nodes[].hitCount`, and `profile.nodes[].callFrame.functionName` before making optimization recommendations.
 
 ## MCP
 
-Lock before interactions; unlock when done. See canonical browser docs for full lock/unlock sequence.
+Lock before interactions. Unlock when done. See canonical browser docs for full lock/unlock sequence.
 
 ## Output
 

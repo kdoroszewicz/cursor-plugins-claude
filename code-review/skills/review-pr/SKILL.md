@@ -3,7 +3,7 @@ name: review-pr
 description: Perform a risk-focused pull request review and return prioritized findings
 ---
 
-# Review Pull Request
+# Review pull request
 
 ## Trigger
 

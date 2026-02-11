@@ -3,7 +3,7 @@ name: create-learning-path
 description: Build a personalized learning roadmap with milestones and practice checkpoints
 ---
 
-# Create a Learning Path
+# Create a learning path
 
 ## Trigger
 

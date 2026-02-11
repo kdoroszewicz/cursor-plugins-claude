@@ -3,7 +3,7 @@ name: build-android-feature
 description: Implement Android features with robust architecture, state management, and tests
 ---
 
-# Build an Android Feature
+# Build an Android feature
 
 ## Trigger
 

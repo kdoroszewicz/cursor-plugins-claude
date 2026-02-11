@@ -5,7 +5,7 @@ model: inherit
 readonly: true
 ---
 
-# Security Reviewer
+# Security reviewer
 
 Security-focused code reviewer for auth, payments, sensitive data, and PR security risks.
 

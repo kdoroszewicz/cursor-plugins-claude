@@ -3,7 +3,7 @@ name: improve-slide-deck
 description: Critique and improve slide decks for clarity, narrative flow, and audience impact
 ---
 
-# Improve a Slide Deck
+# Improve a slide deck
 
 ## Trigger
 

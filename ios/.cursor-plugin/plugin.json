@@ -1,7 +1,7 @@
 {
   "name": "ios",
   "version": "1.0.0",
-  "description": "Cursor plugin for iOS development \u2014 Swift, SwiftUI, architecture, and testing",
+  "description": "Cursor plugin for iOS development: Swift, SwiftUI, architecture, and testing",
   "author": {
     "name": "Cursor",
     "email": "plugins@cursor.com"

@@ -5,7 +5,7 @@ model: inherit
 readonly: true
 ---
 
-# Plugin Architect
+# Plugin architect
 
 Design focused, maintainable Cursor plugins with the smallest viable component set.
 

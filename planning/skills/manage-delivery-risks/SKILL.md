@@ -3,7 +3,7 @@ name: manage-delivery-risks
 description: Identify, prioritize, and mitigate delivery risks in implementation plans
 ---
 
-# Manage Delivery Risks
+# Manage delivery risks
 
 ## Trigger
 

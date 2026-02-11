@@ -3,11 +3,11 @@ name: run-learning-retrospective
 description: Evaluate learning progress, identify blockers, and adjust the learning plan
 ---
 
-# Run a Learning Retrospective
+# Run a learning retrospective
 
 ## Trigger
 
-Learner completed a milestone; needs data-driven adjustment to their plan.
+Learner completed a milestone and needs data-driven adjustment to their plan.
 
 ## Workflow
 

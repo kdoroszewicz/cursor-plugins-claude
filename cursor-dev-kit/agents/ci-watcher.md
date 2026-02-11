@@ -5,7 +5,7 @@ model: fast
 is_background: true
 ---
 
-# CI Watcher
+# CI watcher
 
 CI monitoring specialist for GitHub Actions.
 

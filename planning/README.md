@@ -1,6 +1,6 @@
-# Planning Plugin
+# Planning plugin
 
-Software planning — scope, milestones, risk management, and execution plans.
+Software planning: scope, milestones, risk management, and execution plans.
 
 ## Installation
 

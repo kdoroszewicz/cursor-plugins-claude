@@ -3,7 +3,7 @@ name: ship-frontend-change
 description: Plan, implement, and verify a frontend change with accessibility and performance checks
 ---
 
-# Ship Frontend Change
+# Ship frontend change
 
 ## Trigger
 

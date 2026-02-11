@@ -5,68 +5,68 @@
     "email": "plugins@cursor.com"
   },
   "metadata": {
-    "description": "Official Cursor plugin marketplace — developer tools, framework rules, MCP integrations, and agent skills"
+    "description": "Official Cursor plugin marketplace: developer tools, framework rules, MCP integrations, and agent skills"
   },
   "plugins": [
     {
       "name": "frontend",
       "source": "frontend",
-      "description": "Cursor plugin for frontend engineering workflows — React, TypeScript, accessibility, and performance"
+      "description": "Cursor plugin for frontend engineering workflows: React, TypeScript, accessibility, and performance"
     },
     {
       "name": "design",
       "source": "design",
-      "description": "Cursor plugin for product design workflows — UX specs, design systems, handoff, and iteration"
+      "description": "Cursor plugin for product design workflows: UX specs, design systems, handoff, and iteration"
     },
     {
       "name": "data-science",
       "source": "data-science",
-      "description": "Cursor plugin for analyst-first data science workflows — exploratory analysis, validation, and decision-ready reporting"
+      "description": "Cursor plugin for analyst-first data science workflows: exploratory analysis, validation, and decision-ready reporting"
     },
     {
       "name": "ios",
       "source": "ios",
-      "description": "Cursor plugin for iOS development — Swift, SwiftUI, architecture, and testing"
+      "description": "Cursor plugin for iOS development: Swift, SwiftUI, architecture, and testing"
     },
     {
       "name": "android",
       "source": "android",
-      "description": "Cursor plugin for Android development — Kotlin, Jetpack Compose, architecture, and testing"
+      "description": "Cursor plugin for Android development: Kotlin, Jetpack Compose, architecture, and testing"
     },
     {
       "name": "planning",
       "source": "planning",
-      "description": "Cursor plugin for software planning — scope, milestones, risk management, and execution plans"
+      "description": "Cursor plugin for software planning: scope, milestones, risk management, and execution plans"
     },
     {
       "name": "code-review",
       "source": "code-review",
-      "description": "Cursor plugin for code review workflows — correctness, security, regressions, and actionable feedback"
+      "description": "Cursor plugin for code review workflows: correctness, security, regressions, and actionable feedback"
     },
     {
       "name": "web-browser",
       "source": "web-browser",
-      "description": "Cursor plugin for browser debugging workflows — DevTools, network traces, and reproducible bug reports"
+      "description": "Cursor plugin for browser debugging workflows: DevTools, network traces, and reproducible bug reports"
     },
     {
       "name": "documentation",
       "source": "documentation",
-      "description": "Cursor plugin for technical documentation workflows — READMEs, API docs, architecture notes, and changelogs"
+      "description": "Cursor plugin for technical documentation workflows: READMEs, API docs, architecture notes, and changelogs"
     },
     {
       "name": "presentation-pptx",
       "source": "presentation-pptx",
-      "description": "Cursor plugin for presentation authoring — narrative design, slide outlines, and PPTX-ready content"
+      "description": "Cursor plugin for presentation authoring: narrative design, slide outlines, and PPTX-ready content"
     },
     {
       "name": "learning",
       "source": "learning",
-      "description": "Cursor plugin for learning workflows — skill mapping, practice plans, and feedback loops"
+      "description": "Cursor plugin for learning workflows: skill mapping, practice plans, and feedback loops"
     },
     {
       "name": "cursor-dev-kit",
       "source": "cursor-dev-kit",
-      "description": "Cursor Dev Kit — internal-style workflows used by Cursor developers for CI, code review, shipping, and testing"
+      "description": "Cursor Dev Kit: internal-style workflows used by Cursor developers for CI, code review, shipping, and testing"
     },
     {
       "name": "create-plugin",

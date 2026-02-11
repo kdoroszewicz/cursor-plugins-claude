@@ -1,4 +1,4 @@
-# Create Plugin Plugin
+# Create plugin
 
 Meta workflows for creating Cursor plugins that are marketplace-ready.
 
@@ -35,7 +35,7 @@ agent install create-plugin
 |:--------|:------------|
 | `create-plugin` | Build a new plugin scaffold with the right files and metadata |
 
-## Typical Flow
+## Typical flow
 
 1. Use `/create-plugin` with a plugin name, purpose, and target component types.
 2. Generate or update `plugin.json`, then add rules/skills/agents/commands as needed.

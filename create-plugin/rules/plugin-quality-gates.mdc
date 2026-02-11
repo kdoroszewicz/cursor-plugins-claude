@@ -3,7 +3,7 @@ description: Keep Cursor plugin manifests, paths, and component metadata valid d
 alwaysApply: true
 ---
 
-# Plugin Quality Gates
+# Plugin quality gates
 
 When creating or editing Cursor plugins:
 

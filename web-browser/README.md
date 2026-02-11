@@ -1,6 +1,6 @@
-# Web Browser Plugin
+# Web browser plugin
 
-Browser debugging — DevTools, network traces, and reproducible bug reports.
+Browser debugging: DevTools, network traces, and reproducible bug reports.
 
 ## Installation
 
@@ -25,15 +25,15 @@ agent install web-browser
 |:------|:------------|
 | `browser-debugger` | Reproduction, trace analysis, and fix validation |
 
-## MCP Browser Workflow (canonical)
+## MCP browser workflow (canonical)
 
-**Lock/unlock (critical):** `browser_lock` requires an existing tab — you cannot lock before `browser_navigate`. Correct order: `browser_navigate` (or verify via `browser_tabs`) → `browser_lock` → interactions → `browser_unlock` when fully done. If a tab exists, call `browser_lock` first.
+**Lock/unlock (critical):** `browser_lock` requires an existing tab. You cannot lock before `browser_navigate`. Correct order: `browser_navigate` (or verify via `browser_tabs`) → `browser_lock` → interactions → `browser_unlock` when fully done. If a tab exists, call `browser_lock` first.
 
 **Pre-interaction:** Use `browser_tabs` (action: list) and `browser_snapshot` to get element refs before any click, type, or hover.
 
 **Waiting:** Prefer short incremental waits (1–3s) with `browser_snapshot` checks between them instead of a single long wait.
 
-**Performance profiling:** `browser_profile_start`/`browser_profile_stop` for CPU profiling. Profile data in `~/.cursor/browser-logs/`. Read raw cpu-profile-*.json to verify findings; cross-reference with summary.
+**Performance profiling:** `browser_profile_start`/`browser_profile_stop` for CPU profiling. Profile data in `~/.cursor/browser-logs/`. Read raw cpu-profile-*.json to verify findings. Cross-reference with summary.
 
 **Notes:** Native dialogs (alert/confirm/prompt) never block automation. Iframe content is not accessible. Use `browser_type` to append text, `browser_fill` to clear and replace. For nested scroll containers, use `browser_scroll` with `scrollIntoView: true` before clicking obscured elements.
 

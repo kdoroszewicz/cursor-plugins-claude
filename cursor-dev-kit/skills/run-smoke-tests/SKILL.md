@@ -3,7 +3,7 @@ name: run-smoke-tests
 description: Run Playwright smoke tests, debug failures, and verify fixes
 ---
 
-# Run Smoke Tests
+# Run smoke tests
 
 ## Trigger
 

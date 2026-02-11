@@ -1,6 +1,6 @@
-# Presentation PPTX Plugin
+# Presentation PPTX plugin
 
-Presentation authoring — narrative design, slide outlines, and PPTX-ready content.
+Presentation authoring: narrative design, slide outlines, and PPTX-ready content.
 
 ## Installation
 

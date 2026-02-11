@@ -3,7 +3,7 @@ name: debug-android-issue
 description: Reproduce and debug Android issues in Compose, lifecycle, and data layers
 ---
 
-# Debug an Android Issue
+# Debug an Android issue
 
 ## Trigger
 

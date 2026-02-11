@@ -3,7 +3,7 @@ name: triage-frontend-bug
 description: Reproduce, isolate, and prioritize frontend bugs with a minimal fix strategy
 ---
 
-# Triage a Frontend Bug
+# Triage a frontend bug
 
 ## Trigger
 

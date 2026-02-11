@@ -1,6 +1,6 @@
-# Code Review Plugin
+# Code review plugin
 
-Code review workflows — correctness, security, regressions, and actionable feedback.
+Code review workflows: correctness, security, regressions, and actionable feedback.
 
 ## Installation
 

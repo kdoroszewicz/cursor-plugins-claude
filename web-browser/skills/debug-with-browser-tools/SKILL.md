@@ -3,7 +3,7 @@ name: debug-with-browser-tools
 description: Investigate frontend issues with a structured DevTools and network-debug workflow
 ---
 
-# Debug with Browser Tools
+# Debug with browser tools
 
 ## Trigger
 
@@ -19,11 +19,11 @@ UI bugs, rendering issues, network failures, and browser-only regressions.
 
 ## MCP Notes
 
-Lock before interactions; unlock when done. See canonical browser docs for full lock/unlock sequence.
+Lock before interactions. Unlock when done. See canonical browser docs for full lock/unlock sequence.
 
 - Use `browser_handle_dialog` before actions that trigger `confirm()` or `prompt()` when testing dialog behavior.
-- Iframe content is not accessible; scope work to elements outside iframes.
-- Use `browser_type` to append text; use `browser_fill` to clear and replace. Use `browser_scroll` with `scrollIntoView: true` before clicking elements that may be obscured in nested scroll containers.
+- Iframe content is not accessible. Scope work to elements outside iframes.
+- Use `browser_type` to append text. Use `browser_fill` to clear and replace. Use `browser_scroll` with `scrollIntoView: true` before clicking elements that may be obscured in nested scroll containers.
 
 ## Guardrails
 

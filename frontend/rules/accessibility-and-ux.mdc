@@ -2,7 +2,7 @@
 alwaysApply: true
 ---
 
-# Accessibility and UX Guardrails
+# Accessibility and UX guardrails
 
 1. Ensure all interactive controls are keyboard accessible.
 2. Use semantic elements and proper ARIA labels when needed.

@@ -1,6 +1,6 @@
-# Design Plugin
+# Design plugin
 
-Product design — UX specs, design systems, handoff, and iteration.
+Product design: UX specs, design systems, handoff, and iteration.
 
 ## Installation
 

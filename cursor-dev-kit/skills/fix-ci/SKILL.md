@@ -7,7 +7,7 @@ description: Find failing CI jobs, inspect logs, and apply focused fixes
 
 ## Trigger
 
-Branch CI is failing; need a fast, iterative path to green checks.
+Branch CI is failing and needs a fast, iterative path to green checks.
 
 ## Workflow
 

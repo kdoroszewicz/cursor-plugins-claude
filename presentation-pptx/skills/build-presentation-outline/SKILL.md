@@ -3,7 +3,7 @@ name: build-presentation-outline
 description: Convert goals into a compelling slide narrative with speaker-ready structure
 ---
 
-# Build a Presentation Outline
+# Build a presentation outline
 
 ## Trigger
 

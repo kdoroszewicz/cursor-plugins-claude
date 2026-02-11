@@ -3,7 +3,7 @@ name: create-design-spec
 description: Turn product requirements into a clear design spec and handoff checklist
 ---
 
-# Create a Design Spec
+# Create a design spec
 
 ## Trigger
 

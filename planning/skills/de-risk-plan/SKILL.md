@@ -3,7 +3,7 @@ name: de-risk-plan
 description: Stress-test a plan for hidden assumptions, dependencies, and delivery risk
 ---
 
-# De-Risk Plan
+# De-risk plan
 
 ## Trigger
 

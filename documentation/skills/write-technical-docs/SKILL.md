@@ -3,7 +3,7 @@ name: write-technical-docs
 description: Produce accurate, maintainable documentation with clear structure and examples
 ---
 
-# Write Technical Documentation
+# Write technical documentation
 
 ## Trigger
 

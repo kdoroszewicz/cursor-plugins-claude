@@ -3,7 +3,7 @@ name: review-doc-accuracy
 description: Audit docs for drift against current implementation and propose precise updates
 ---
 
-# Review Documentation Accuracy
+# Review documentation accuracy
 
 ## Trigger
 

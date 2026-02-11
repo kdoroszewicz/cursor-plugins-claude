@@ -3,7 +3,7 @@ name: weekly-review
 description: Produce a weekly synthesis of authored commits with highlights by bugfix, tech debt, and net-new work
 ---
 
-# Weekly Review
+# Weekly review
 
 ## Trigger
 

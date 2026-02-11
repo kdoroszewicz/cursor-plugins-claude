@@ -2,7 +2,7 @@
 alwaysApply: true
 ---
 
-# Documentation Quality Standards
+# Documentation quality standards
 
 1. Start with prerequisites and intended audience.
 2. Include runnable examples and expected outcomes.

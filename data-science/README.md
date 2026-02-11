@@ -1,6 +1,6 @@
-# Data Science Plugin
+# Data science plugin
 
-Analyst-first data science — question framing, exploratory analysis, decision-ready insights.
+Analyst-first data science: question framing, exploratory analysis, decision-ready insights.
 
 ## Installation
 

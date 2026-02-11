@@ -3,7 +3,7 @@ name: build-frontend-feature
 description: Plan and implement frontend features with accessibility and performance checks
 ---
 
-# Build a Frontend Feature Safely
+# Build a frontend feature safely
 
 ## Trigger
 

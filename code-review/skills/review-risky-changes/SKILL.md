@@ -3,7 +3,7 @@ name: review-risky-changes
 description: Deep review of high-risk changes involving auth, data, infra, or shared core logic
 ---
 
-# Review High-Risk Changes
+# Review high-risk changes
 
 ## Trigger
 

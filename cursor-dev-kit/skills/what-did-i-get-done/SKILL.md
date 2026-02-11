@@ -3,7 +3,7 @@ name: what-did-i-get-done
 description: Summarize authored commits over a user-specified time period into a concise update
 ---
 
-# What Did I Get Done
+# What did I get done
 
 ## Trigger
 
@@ -22,7 +22,7 @@ Need a short, high-signal summary of work completed in a specific time range (fo
 - Be extremely concise and information-dense.
 - Prioritize substantial behavior or architecture changes.
 - Omit cosmetic-only changes (formatting, imports, minor renames).
-- Do not infer intent or motivation; describe changes functionally.
+- Do not infer intent or motivation. Describe changes functionally.
 
 ## Output
 

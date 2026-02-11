@@ -1,7 +1,7 @@
 {
   "name": "presentation-pptx",
   "version": "1.0.0",
-  "description": "Cursor plugin for presentation authoring \u2014 narrative design, slide outlines, and PPTX-ready content",
+  "description": "Cursor plugin for presentation authoring: narrative design, slide outlines, and PPTX-ready content",
   "author": {
     "name": "Cursor",
     "email": "plugins@cursor.com"

@@ -1,6 +1,6 @@
-# Learning Plugin
+# Learning plugin
 
-Learning workflows — skill mapping, practice plans, and feedback loops.
+Learning workflows: skill mapping, practice plans, and feedback loops.
 
 ## Installation
 

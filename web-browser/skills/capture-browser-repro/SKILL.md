@@ -3,7 +3,7 @@ name: capture-browser-repro
 description: Build a precise browser reproduction record for debugging and handoff
 ---
 
-# Capture Browser Repro
+# Capture browser repro
 
 ## Trigger
 
@@ -23,7 +23,7 @@ Use `browser_snapshot` with `take_screenshot_afterwards: true` for visual eviden
 
 ## MCP
 
-Lock before interactions; unlock when done. See canonical browser docs for full lock/unlock sequence.
+Lock before interactions. Unlock when done. See canonical browser docs for full lock/unlock sequence.
 
 ## Output
 

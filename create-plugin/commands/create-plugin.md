@@ -3,7 +3,7 @@ name: create-plugin
 description: Scaffold a new Cursor plugin with manifest, component files, and marketplace wiring when needed
 ---
 
-# Create Plugin
+# Create plugin
 
 Create a new plugin scaffold using this flow:
 

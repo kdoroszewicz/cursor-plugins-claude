@@ -3,11 +3,11 @@ name: review-analysis-results
 description: Stress-test analysis conclusions, uncertainty, and caveats before stakeholder readout
 ---
 
-# Review Analysis Results
+# Review analysis results
 
 ## Trigger
 
-Analysis draft is complete; conclusions need validation before sharing recommendations.
+Analysis draft is complete. Conclusions need validation before sharing recommendations.
 
 ## Workflow
 

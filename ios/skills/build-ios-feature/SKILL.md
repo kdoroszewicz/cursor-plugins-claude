@@ -3,7 +3,7 @@ name: build-ios-feature
 description: Implement iOS features with clear architecture, state handling, and test coverage
 ---
 
-# Build an iOS Feature
+# Build an iOS feature
 
 ## Trigger
 

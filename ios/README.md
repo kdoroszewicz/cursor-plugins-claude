@@ -1,6 +1,6 @@
-# iOS Plugin
+# iOS plugin
 
-iOS development — Swift, SwiftUI, architecture, and testing.
+iOS development: Swift, SwiftUI, architecture, and testing.
 
 ## Installation
 

@@ -3,7 +3,7 @@ name: review-design-quality
 description: Evaluate a design solution for usability, consistency, and implementation readiness
 ---
 
-# Review Design Quality
+# Review design quality
 
 ## Trigger
 

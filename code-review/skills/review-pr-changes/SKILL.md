@@ -3,7 +3,7 @@ name: review-pr-changes
 description: Perform risk-focused code reviews with prioritized findings and test-gap analysis
 ---
 
-# Review Pull Request Changes
+# Review pull request changes
 
 ## Trigger
 

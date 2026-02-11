@@ -3,7 +3,7 @@ name: debug-ios-issue
 description: Reproduce and debug iOS issues with state, lifecycle, and networking diagnostics
 ---
 
-# Debug an iOS Issue
+# Debug an iOS issue
 
 ## Trigger
 

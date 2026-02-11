@@ -2,7 +2,7 @@
 alwaysApply: true
 ---
 
-# Frontend Performance Checks
+# Frontend performance checks
 
 1. Avoid unnecessary re-renders in hot UI paths.
 2. Keep bundle growth justified and measurable.

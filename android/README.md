@@ -1,6 +1,6 @@
-# Android Plugin
+# Android plugin
 
-Android development — Kotlin, Jetpack Compose, architecture, and testing.
+Android development: Kotlin, Jetpack Compose, architecture, and testing.
 
 ## Installation
 

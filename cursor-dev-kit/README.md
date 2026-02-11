@@ -1,4 +1,4 @@
-# Cursor Dev Kit Plugin
+# Cursor Dev Kit plugin
 
 Internal-style workflows for CI, code review, shipping, and test reliability.
 

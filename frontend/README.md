@@ -1,6 +1,6 @@
-# Frontend Plugin
+# Frontend plugin
 
-Frontend engineering — React, TypeScript, accessibility, and performance.
+Frontend engineering: React, TypeScript, accessibility, and performance.
 
 ## Installation
 

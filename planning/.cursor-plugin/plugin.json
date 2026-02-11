@@ -1,7 +1,7 @@
 {
   "name": "planning",
   "version": "1.0.0",
-  "description": "Cursor plugin for software planning \u2014 scope, milestones, risk management, and execution plans",
+  "description": "Cursor plugin for software planning: scope, milestones, risk management, and execution plans",
   "author": {
     "name": "Cursor",
     "email": "plugins@cursor.com"

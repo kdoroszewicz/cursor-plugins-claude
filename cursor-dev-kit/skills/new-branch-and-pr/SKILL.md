@@ -3,7 +3,7 @@ name: new-branch-and-pr
 description: Create a fresh branch, complete work, and open a pull request
 ---
 
-# New Branch and PR
+# New branch and PR
 
 ## Trigger
 

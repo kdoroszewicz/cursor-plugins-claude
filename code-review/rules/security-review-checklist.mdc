@@ -2,7 +2,7 @@
 alwaysApply: true
 ---
 
-# Security Review Checklist
+# Security review checklist
 
 1. Validate and sanitize untrusted input at trust boundaries.
 2. Confirm authorization checks exist for sensitive actions and resource access.

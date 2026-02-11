@@ -3,7 +3,7 @@ name: draft-api-docs
 description: Generate API documentation from current routes, models, and error behavior
 ---
 
-# Draft API Docs
+# Draft API docs
 
 ## Trigger
 

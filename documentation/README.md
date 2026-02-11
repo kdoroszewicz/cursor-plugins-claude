@@ -1,6 +1,6 @@
-# Documentation Plugin
+# Documentation plugin
 
-Technical documentation — READMEs, API docs, architecture notes, and changelogs.
+Technical documentation: READMEs, API docs, architecture notes, and changelogs.
 
 ## Installation
 
