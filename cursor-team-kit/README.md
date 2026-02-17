@@ -5,7 +5,7 @@ Internal-style workflows for CI, code review, shipping, and test reliability.
 ## Installation
 
 ```bash
-agent install cursor-dev-kit
+agent install cursor-team-kit
 ```
 
 ## Components

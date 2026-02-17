@@ -16,7 +16,7 @@ Official Cursor plugins for popular developer tools, frameworks, and SaaS produc
 | [Web Browser](web-browser/) | Developer Tools | DevTools-driven debugging, network traces, and repro workflows |
 | [Documentation](documentation/) | Utilities | READMEs, API docs, architecture notes, and changelog writing |
 | [Learning](learning/) | Utilities | Skill maps, practice plans, and feedback loops |
-| [Cursor Team Kit](cursor-dev-kit/) | Developer Tools | Internal-style workflows for CI, code review, shipping, and testing |
+| [Cursor Team Kit](cursor-team-kit/) | Developer Tools | Internal-style workflows for CI, code review, shipping, and testing |
 | [Create Plugin](create-plugin/) | Developer Tools | Meta workflows for creating Cursor plugins with scaffolding and submission checks |
 | [Ralph Loop](ralph-loop/) | Developer Tools | Iterative self-referential AI loops using the Ralph Wiggum technique |
 

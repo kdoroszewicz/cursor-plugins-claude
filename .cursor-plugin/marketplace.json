@@ -59,8 +59,8 @@
       "description": "Skill mapping, practice plans, and learning retrospectives."
     },
     {
-      "name": "cursor-dev-kit",
-      "source": "cursor-dev-kit",
+      "name": "cursor-team-kit",
+      "source": "cursor-team-kit",
       "description": "Internal team workflows used by Cursor developers for CI, code review, and shipping."
     },
     {
