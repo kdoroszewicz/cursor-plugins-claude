@@ -61,7 +61,7 @@
     {
       "name": "cursor-dev-kit",
       "source": "cursor-dev-kit",
-      "description": "Internal workflows used by Cursor developers for CI, code review, and shipping."
+      "description": "Internal team workflows used by Cursor developers for CI, code review, and shipping."
     },
     {
       "name": "create-plugin",
