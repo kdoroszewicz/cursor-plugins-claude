@@ -1,36 +1,50 @@
-# Cursor plugins
+# cursor-plugins-claude
 
-Official Cursor plugins for popular developer tools, frameworks, and SaaS products. Each plugin is a standalone directory at the repository root with its own `.cursor-plugin/plugin.json` manifest.
+[Cursor's official plugins](https://github.com/cursor/plugins) adapted for [Claude Code](https://docs.anthropic.com/en/docs/claude-code).
 
-## Plugins
+Cursor ships a set of high-quality agent plugins — rules, skills, and MCP integrations — but they target Cursor's own runtime. This fork adds the `.claude-plugin/` manifests that Claude Code needs, so you can install the same plugins with a single command.
 
-| Plugin | Category | Description |
-|:-------|:---------|:------------|
-| [Teaching](teaching/) | Utilities | Skill maps, practice plans, and feedback loops |
-| [Continual Learning](continual-learning/) | Developer Tools | Incremental transcript-driven AGENTS.md memory updates with high-signal bullet points |
-| [Cursor Team Kit](cursor-team-kit/) | Developer Tools | Internal-style workflows for CI, code review, shipping, and testing |
-| [Create Plugin](create-plugin/) | Developer Tools | Meta workflows for creating Cursor plugins with scaffolding and submission checks |
-| [Ralph Loop](ralph-loop/) | Developer Tools | Iterative self-referential AI loops using the Ralph Wiggum technique |
+## Quick start
 
-## Repository structure
+```sh
+# 1. Add the marketplace
+/plugin marketplace add kdoroszewicz/cursor-plugins-claude
 
-This is a multi-plugin marketplace repository. The root `.cursor-plugin/marketplace.json` lists all plugins, and each plugin has its own manifest:
-
+# 2. Install any plugin
+/plugin install cursor-team-kit@cursor-plugins-claude
 ```
-plugins/
-├── .cursor-plugin/
-│   └── marketplace.json       # Marketplace manifest (lists all plugins)
-├── plugin-name/
-│   ├── .cursor-plugin/
-│   │   └── plugin.json        # Per-plugin manifest
-│   ├── skills/                # Agent skills (SKILL.md with frontmatter)
-│   ├── rules/                 # Cursor rules (.mdc files)
-│   ├── mcp.json               # MCP server definitions
-│   ├── README.md
-│   ├── CHANGELOG.md
-│   └── LICENSE
-└── ...
+
+You can install as many plugins as you need:
+
+```sh
+/plugin install continual-learning@cursor-plugins-claude
+/plugin install teaching@cursor-plugins-claude
 ```
+
+## Available plugins
+
+### Developer Tools
+
+| Plugin | Description |
+|:-------|:------------|
+| [Continual Learning](continual-learning/) | Incremental transcript-driven AGENTS.md memory updates with high-signal bullet points |
+| [Cursor Team Kit](cursor-team-kit/) | Internal-style workflows for CI, code review, shipping, and testing |
+| [Create Plugin](create-plugin/) | Scaffold and validate new Cursor plugins |
+| [Ralph Loop](ralph-loop/) | Iterative self-referential AI loops using the Ralph Wiggum technique |
+
+### Utilities
+
+| Plugin | Description |
+|:-------|:------------|
+| [Teaching](teaching/) | Skill maps, practice plans, and feedback loops |
+
+## What changed from upstream
+
+This fork adds a `.claude-plugin/` directory at the repo root and inside each plugin, containing the marketplace and plugin manifests required by Claude Code. No plugin logic or rules have been modified — the plugins behave identically to their upstream versions.
+
+## Keeping up to date
+
+This repo tracks [cursor/plugins](https://github.com/cursor/plugins). When upstream publishes new plugins or updates, this fork will be rebased to include them. The sync workflow is documented in the [sync-fork skill](.claude/skills/sync-fork/SKILL.md) — use it to ensure all manifests stay in sync.
 
 ## License
 
