@@ -1,0 +1,5 @@
+{
+  "name": "agent-compatibility",
+  "description": "CLI-backed repo compatibility scans plus Cursor agents that audit startup, validation, and docs against reality.",
+  "author": { "name": "Cursor", "email": "plugins@cursor.com" }
+}

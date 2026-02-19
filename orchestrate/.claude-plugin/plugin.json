@@ -1,0 +1,5 @@
+{
+  "name": "orchestrate",
+  "description": "Fan large tasks out across parallel Cursor cloud agents with planners, workers, verifiers, and structured handoffs.",
+  "author": { "name": "Cursor", "email": "plugins@cursor.com" }
+}

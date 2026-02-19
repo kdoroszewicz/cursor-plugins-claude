@@ -1,0 +1,5 @@
+{
+  "name": "docs-canvas",
+  "description": "Render documentation — architecture notes, API references, runbooks, and codebase walkthroughs — as a navigable Cursor Canvas with sections, table of contents, diagrams, and cross-references.",
+  "author": { "name": "Cursor", "email": "plugins@cursor.com" }
+}

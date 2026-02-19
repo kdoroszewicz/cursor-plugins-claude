@@ -1,0 +1,88 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "cursor-plugins-claude",
+  "description": "Official Cursor plugin marketplace: developer tools, framework rules, MCP integrations, and agent skills",
+  "owner": {
+    "name": "Cursor",
+    "email": "plugins@cursor.com"
+  },
+  "plugins": [
+    {
+      "name": "teaching",
+      "description": "Skill mapping, practice plans, and learning retrospectives.",
+      "source": "./teaching",
+      "category": "utilities",
+      "author": { "name": "Cursor", "email": "plugins@cursor.com" }
+    },
+    {
+      "name": "continual-learning",
+      "description": "Incremental transcript-driven memory updates for AGENTS.md using high-signal bullet points only.",
+      "source": "./continual-learning",
+      "category": "developer-tools",
+      "author": { "name": "Cursor", "email": "plugins@cursor.com" }
+    },
+    {
+      "name": "cursor-team-kit",
+      "description": "Internal team workflows used by Cursor developers for CI, code review, shipping, local automation, and verification.",
+      "source": "./cursor-team-kit",
+      "category": "developer-tools",
+      "author": { "name": "Cursor", "email": "plugins@cursor.com" }
+    },
+    {
+      "name": "create-plugin",
+      "description": "Scaffold and validate new Cursor plugins.",
+      "source": "./create-plugin",
+      "category": "developer-tools",
+      "author": { "name": "Cursor", "email": "plugins@cursor.com" }
+    },
+    {
+      "name": "ralph-loop",
+      "description": "Iterative self-referential AI loops using the Ralph Wiggum technique.",
+      "source": "./ralph-loop",
+      "category": "developer-tools",
+      "author": { "name": "Cursor", "email": "plugins@cursor.com" }
+    },
+    {
+      "name": "agent-compatibility",
+      "description": "CLI-backed repo compatibility scans plus Cursor agents that audit startup, validation, and docs against reality.",
+      "source": "./agent-compatibility",
+      "category": "developer-tools",
+      "author": { "name": "Cursor", "email": "plugins@cursor.com" }
+    },
+    {
+      "name": "cli-for-agent",
+      "description": "Patterns for designing CLIs that coding agents can run reliably: flags, help with examples, pipelines, errors, idempotency, dry-run.",
+      "source": "./cli-for-agent",
+      "category": "developer-tools",
+      "author": { "name": "Cursor", "email": "plugins@cursor.com" }
+    },
+    {
+      "name": "pr-review-canvas",
+      "description": "Render PR diffs as interactive Cursor Canvases organized for reviewer comprehension — groups changes by importance, separates boilerplate from core logic, and highlights tricky or unexpected code.",
+      "source": "./pr-review-canvas",
+      "category": "developer-tools",
+      "author": { "name": "Cursor", "email": "plugins@cursor.com" }
+    },
+    {
+      "name": "docs-canvas",
+      "description": "Render documentation — architecture notes, API references, runbooks, and codebase walkthroughs — as a navigable Cursor Canvas with sections, table of contents, diagrams, and cross-references.",
+      "source": "./docs-canvas",
+      "category": "developer-tools",
+      "author": { "name": "Cursor", "email": "plugins@cursor.com" }
+    },
+    {
+      "name": "cursor-sdk",
+      "description": "Build apps, scripts, CI pipelines, and automations on top of the Cursor TypeScript SDK (@cursor/sdk) — runtime selection, auth, streaming, MCP, error handling, and ready-to-extend integration patterns.",
+      "source": "./cursor-sdk",
+      "category": "developer-tools",
+      "author": { "name": "Cursor", "email": "plugins@cursor.com" }
+    },
+    {
+      "name": "orchestrate",
+      "description": "Fan large tasks out across parallel Cursor cloud agents with planners, workers, verifiers, and structured handoffs.",
+      "source": "./orchestrate",
+      "category": "developer-tools",
+      "author": { "name": "Cursor", "email": "plugins@cursor.com" }
+    }
+  ]
+}

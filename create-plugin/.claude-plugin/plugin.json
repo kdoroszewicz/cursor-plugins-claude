@@ -1,0 +1,5 @@
+{
+  "name": "create-plugin",
+  "description": "Scaffold and validate new Cursor plugins. Handles directory setup, manifest generation, and pre-submission quality checks for the marketplace.",
+  "author": { "name": "Cursor", "email": "plugins@cursor.com" }
+}
