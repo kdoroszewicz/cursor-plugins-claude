@@ -1,0 +1,5 @@
+{
+  "name": "pr-review-canvas",
+  "description": "Render PR diffs as interactive Cursor Canvases organized for reviewer comprehension — groups changes by importance, separates boilerplate from core logic, and highlights tricky or unexpected code.",
+  "author": { "name": "Cursor", "email": "plugins@cursor.com" }
+}

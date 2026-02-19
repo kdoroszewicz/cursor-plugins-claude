@@ -1,8 +1,27 @@
-# Cursor plugins
+# cursor-plugins-claude
 
-Official Cursor plugins for popular developer tools, frameworks, and SaaS products. Each plugin is a standalone directory at the repository root with its own `.cursor-plugin/plugin.json` manifest.
+[Cursor's official plugins](https://github.com/cursor/plugins) adapted for [Claude Code](https://docs.anthropic.com/en/docs/claude-code).
 
-## Plugins
+Cursor ships a set of high-quality agent plugins — rules, skills, and MCP integrations — but they target Cursor's own runtime. This fork adds the `.claude-plugin/` manifests that Claude Code needs, so you can install the same plugins with a single command.
+
+## Quick start
+
+```sh
+# 1. Add the marketplace
+/plugin marketplace add kdoroszewicz/cursor-plugins-claude
+
+# 2. Install any plugin
+/plugin install cursor-team-kit@cursor-plugins-claude
+```
+
+You can install as many plugins as you need:
+
+```sh
+/plugin install continual-learning@cursor-plugins-claude
+/plugin install teaching@cursor-plugins-claude
+```
+
+## Available plugins
 
 | `name` | Plugin | Author | Category | `description` (from marketplace) |
 |:-------|:-------|:-------|:---------|:-------------------------------------|
@@ -17,28 +36,16 @@ Official Cursor plugins for popular developer tools, frameworks, and SaaS produc
 | `cursor-sdk` | [Cursor SDK](cursor-sdk/) | Cursor | Developer Tools | Build apps, scripts, CI pipelines, and automations on top of the Cursor TypeScript SDK (@cursor/sdk) — runtime selection, auth, streaming, MCP, error handling, and ready-to-extend integration patterns. |
 | `orchestrate` | [Orchestrate](orchestrate/) | Cursor | Developer Tools | Fan large tasks out across parallel Cursor cloud agents with planners, workers, verifiers, and structured handoffs. |
 | `pstack` | [pstack](pstack/) | Lauren Tan | Developer Tools | if you want to go fast, go deep first. pstack helps you write less, but higher quality code. rigorous agent workflows you can parallelize with confidence. |
+| `ralph-loop` | [Ralph Loop](ralph-loop/) | Cursor | Developer Tools | Iterative self-referential AI loops using the Ralph Wiggum technique. |
+| `teaching` | [Teaching](teaching/) | Cursor | Developer Tools | Skill maps, practice plans, and feedback loops. |
 
-Author values match each plugin’s `plugin.json` `author.name` (Cursor lists `plugins@cursor.com` in the manifest).
+## What changed from upstream
 
-## Repository structure
+This fork adds a `.claude-plugin/` directory at the repo root and inside each plugin, containing the marketplace and plugin manifests required by Claude Code. No plugin logic or rules have been modified — the plugins behave identically to their upstream versions.
 
-This is a multi-plugin marketplace repository. The root `.cursor-plugin/marketplace.json` lists all plugins, and each plugin has its own manifest:
+## Keeping up to date
 
-```
-plugins/
-├── .cursor-plugin/
-│   └── marketplace.json       # Marketplace manifest (lists all plugins)
-├── plugin-name/
-│   ├── .cursor-plugin/
-│   │   └── plugin.json        # Per-plugin manifest
-│   ├── skills/                # Agent skills (SKILL.md with frontmatter)
-│   ├── rules/                 # Cursor rules (.mdc files)
-│   ├── mcp.json               # MCP server definitions
-│   ├── README.md
-│   ├── CHANGELOG.md
-│   └── LICENSE
-└── ...
-```
+This repo tracks [cursor/plugins](https://github.com/cursor/plugins). When upstream publishes new plugins or updates, this fork will be rebased to include them. The sync workflow is documented in the [sync-fork skill](.claude/skills/sync-fork/SKILL.md) — use it to ensure all manifests stay in sync.
 
 ## License
 

@@ -1,0 +1,5 @@
+{
+  "name": "cli-for-agent",
+  "description": "Patterns for designing CLIs that coding agents can run reliably: flags, help with examples, pipelines, errors, idempotency, dry-run.",
+  "author": { "name": "Cursor", "email": "plugins@cursor.com" }
+}
