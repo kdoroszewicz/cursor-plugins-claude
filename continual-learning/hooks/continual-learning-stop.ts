@@ -4,9 +4,9 @@ import { existsSync, mkdirSync, readFileSync, statSync, writeFileSync } from "no
 import { dirname, resolve } from "node:path";
 import { stdin } from "bun";
 
-const STATE_PATH = resolve(".cursor/hooks/state/continuous-learning.json");
+const STATE_PATH = resolve(".cursor/hooks/state/continual-learning.json");
 const INCREMENTAL_INDEX_PATH = resolve(
-  ".cursor/hooks/state/continuous-learning-index.json"
+  ".cursor/hooks/state/continual-learning-index.json"
 );
 const DEFAULT_MIN_TURNS = 10;
 const DEFAULT_MIN_MINUTES = 120;
@@ -15,7 +15,7 @@ const TRIAL_DEFAULT_MIN_MINUTES = 15;
 const TRIAL_DEFAULT_DURATION_MINUTES = 24 * 60;
 
 const FOLLOWUP_MESSAGE =
-  `Run the \`continuous-learning\` skill now. First read existing \`AGENTS.md\` and update existing entries in place (do not only append). Use incremental transcript processing with index file \`${INCREMENTAL_INDEX_PATH}\`: only read transcripts not in the index or transcripts whose mtime is newer than indexed mtime (re-read changed transcripts). After processing, write back the updated index mtimes and remove entries for deleted transcripts. Update \`AGENTS.md\` only for high-signal, repeated user-correction patterns or durable workspace facts. Exclude one-off/transient details and secrets. Keep each learned section to at most 12 bullets. Write plain bullet points only, with no evidence/confidence tags or other metadata annotations. If no meaningful updates exist, respond exactly: No high-signal memory updates.`;
+  `Run the \`continual-learning\` skill now. First read existing \`AGENTS.md\` and update existing entries in place (do not only append). Use incremental transcript processing with index file \`${INCREMENTAL_INDEX_PATH}\`: only read transcripts not in the index or transcripts whose mtime is newer than indexed mtime (re-read changed transcripts). After processing, write back the updated index mtimes and remove entries for deleted transcripts. Update \`AGENTS.md\` only for high-signal, repeated user-correction patterns or durable workspace facts. Exclude one-off/transient details and secrets. Keep each learned section to at most 12 bullets. Write plain bullet points only, with no evidence/confidence tags or other metadata annotations. If no meaningful updates exist, respond exactly: No high-signal memory updates.`;
 
 interface StopHookInput {
   conversation_id: string;
@@ -56,6 +56,10 @@ function parseBoolean(value: string | undefined): boolean {
     normalized === "yes" ||
     normalized === "on"
   );
+}
+
+function readEnvValue(primary: string, legacy: string): string | undefined {
+  return process.env[primary] ?? process.env[legacy];
 }
 
 function loadState(): ContinuousLearningState {
@@ -156,21 +160,31 @@ async function main(args: string[]): Promise<number> {
     const now = Date.now();
 
     const trialEnabled =
-      args.includes("--trial") || parseBoolean(process.env.CONTINUOUS_LEARNING_TRIAL_MODE);
+      args.includes("--trial") ||
+      parseBoolean(readEnvValue("CONTINUAL_LEARNING_TRIAL_MODE", "CONTINUOUS_LEARNING_TRIAL_MODE"));
     if (trialEnabled && countedTurn && state.trialStartedAtMs === null) {
       state.trialStartedAtMs = now;
     }
 
     const trialDurationMinutes = parsePositiveInt(
-      process.env.CONTINUOUS_LEARNING_TRIAL_DURATION_MINUTES,
+      readEnvValue(
+        "CONTINUAL_LEARNING_TRIAL_DURATION_MINUTES",
+        "CONTINUOUS_LEARNING_TRIAL_DURATION_MINUTES"
+      ),
       TRIAL_DEFAULT_DURATION_MINUTES
     );
     const trialMinTurns = parsePositiveInt(
-      process.env.CONTINUOUS_LEARNING_TRIAL_MIN_TURNS,
+      readEnvValue(
+        "CONTINUAL_LEARNING_TRIAL_MIN_TURNS",
+        "CONTINUOUS_LEARNING_TRIAL_MIN_TURNS"
+      ),
       TRIAL_DEFAULT_MIN_TURNS
     );
     const trialMinMinutes = parsePositiveInt(
-      process.env.CONTINUOUS_LEARNING_TRIAL_MIN_MINUTES,
+      readEnvValue(
+        "CONTINUAL_LEARNING_TRIAL_MIN_MINUTES",
+        "CONTINUOUS_LEARNING_TRIAL_MIN_MINUTES"
+      ),
       TRIAL_DEFAULT_MIN_MINUTES
     );
     const inTrialWindow =
@@ -179,11 +193,11 @@ async function main(args: string[]): Promise<number> {
       now - state.trialStartedAtMs < trialDurationMinutes * 60_000;
 
     const minTurns = parsePositiveInt(
-      process.env.CONTINUOUS_LEARNING_MIN_TURNS,
+      readEnvValue("CONTINUAL_LEARNING_MIN_TURNS", "CONTINUOUS_LEARNING_MIN_TURNS"),
       DEFAULT_MIN_TURNS
     );
     const minMinutes = parsePositiveInt(
-      process.env.CONTINUOUS_LEARNING_MIN_MINUTES,
+      readEnvValue("CONTINUAL_LEARNING_MIN_MINUTES", "CONTINUOUS_LEARNING_MIN_MINUTES"),
       DEFAULT_MIN_MINUTES
     );
 
@@ -223,7 +237,7 @@ async function main(args: string[]): Promise<number> {
     console.log(JSON.stringify({}));
     return 0;
   } catch (error) {
-    console.error("[continuous-learning-stop] failed", error);
+    console.error("[continual-learning-stop] failed", error);
     console.log(JSON.stringify({}));
     return 0;
   }

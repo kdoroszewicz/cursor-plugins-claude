@@ -14,8 +14,8 @@
       "description": "Skill mapping, practice plans, and learning retrospectives."
     },
     {
-      "name": "continuous-learning",
-      "source": "continuous-learning",
+      "name": "continual-learning",
+      "source": "continual-learning",
       "description": "Incremental transcript-driven memory updates for AGENTS.md using high-signal bullet points only."
     },
     {

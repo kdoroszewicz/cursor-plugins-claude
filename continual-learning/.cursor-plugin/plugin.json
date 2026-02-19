@@ -1,6 +1,6 @@
 {
-  "name": "continuous-learning",
-  "displayName": "Continuous Learning",
+  "name": "continual-learning",
+  "displayName": "Continual Learning",
   "version": "1.0.0",
   "description": "Incrementally learns durable user preferences and workspace facts from transcript changes and keeps AGENTS.md up to date with plain bullet points.",
   "author": {
@@ -12,7 +12,7 @@
   "license": "MIT",
   "logo": "assets/avatar.png",
   "keywords": [
-    "continuous-learning",
+    "continual-learning",
     "agent-memory",
     "transcripts",
     "hooks",

@@ -1,11 +1,11 @@
-# Continuous Learning
+# Continual Learning
 
 Automatically and incrementally keeps `AGENTS.md` up to date from transcript changes.
 
 The plugin combines:
 
 - A `stop` hook that decides when to trigger learning.
-- A `continuous-learning` skill that mines only high-signal transcript deltas.
+- A `continual-learning` skill that mines only high-signal transcript deltas.
 
 It is designed to avoid noisy rewrites by:
 
@@ -16,20 +16,20 @@ It is designed to avoid noisy rewrites by:
 ## Installation
 
 ```bash
-/add-plugin continuous-learning
+/add-plugin continual-learning
 ```
 
 ## How it works
 
-On eligible `stop` events, the hook may emit a `followup_message` that asks the agent to run the `continuous-learning` skill.
+On eligible `stop` events, the hook may emit a `followup_message` that asks the agent to run the `continual-learning` skill.
 
 The hook keeps local runtime state in:
 
-- `.cursor/hooks/state/continuous-learning.json` (cadence state)
+- `.cursor/hooks/state/continual-learning.json` (cadence state)
 
 The skill uses an incremental transcript index at:
 
-- `.cursor/hooks/state/continuous-learning-index.json`
+- `.cursor/hooks/state/continual-learning-index.json`
 
 ## Trigger cadence
 
@@ -47,12 +47,12 @@ Trial mode defaults (enabled in this plugin hook config):
 
 ## Optional env overrides
 
-- `CONTINUOUS_LEARNING_MIN_TURNS`
-- `CONTINUOUS_LEARNING_MIN_MINUTES`
-- `CONTINUOUS_LEARNING_TRIAL_MODE`
-- `CONTINUOUS_LEARNING_TRIAL_MIN_TURNS`
-- `CONTINUOUS_LEARNING_TRIAL_MIN_MINUTES`
-- `CONTINUOUS_LEARNING_TRIAL_DURATION_MINUTES`
+- `CONTINUAL_LEARNING_MIN_TURNS` (or legacy `CONTINUOUS_LEARNING_MIN_TURNS`)
+- `CONTINUAL_LEARNING_MIN_MINUTES` (or legacy `CONTINUOUS_LEARNING_MIN_MINUTES`)
+- `CONTINUAL_LEARNING_TRIAL_MODE` (or legacy `CONTINUOUS_LEARNING_TRIAL_MODE`)
+- `CONTINUAL_LEARNING_TRIAL_MIN_TURNS` (or legacy `CONTINUOUS_LEARNING_TRIAL_MIN_TURNS`)
+- `CONTINUAL_LEARNING_TRIAL_MIN_MINUTES` (or legacy `CONTINUOUS_LEARNING_TRIAL_MIN_MINUTES`)
+- `CONTINUAL_LEARNING_TRIAL_DURATION_MINUTES` (or legacy `CONTINUOUS_LEARNING_TRIAL_DURATION_MINUTES`)
 
 ## Output format in AGENTS.md
 

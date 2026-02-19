@@ -1,9 +1,9 @@
 ---
-name: continuous-learning
+name: continual-learning
 description: Incrementally extract recurring user corrections and durable workspace facts from transcript changes, then update AGENTS.md with plain bullet points only. Use when the user asks to mine previous chats, maintain AGENTS.md memory, or build a self-learning preference loop.
 ---
 
-# Continuous Learning
+# Continual Learning
 
 Keep `AGENTS.md` current using transcript deltas instead of full rescans.
 
@@ -11,7 +11,7 @@ Keep `AGENTS.md` current using transcript deltas instead of full rescans.
 
 - Transcript root: `~/.cursor/projects/<workspace-slug>/agent-transcripts/`
 - Existing memory file: `AGENTS.md`
-- Incremental index: `.cursor/hooks/state/continuous-learning-index.json`
+- Incremental index: `.cursor/hooks/state/continual-learning-index.json`
 
 ## Workflow
 
