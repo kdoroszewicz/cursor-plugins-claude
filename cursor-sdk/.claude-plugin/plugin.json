@@ -1,0 +1,5 @@
+{
+  "name": "cursor-sdk",
+  "description": "Build apps, scripts, and automations with the TypeScript SDK.",
+  "author": { "name": "Cursor", "email": "plugins@cursor.com" }
+}

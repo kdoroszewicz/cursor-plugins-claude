@@ -1,0 +1,5 @@
+{
+  "name": "orchestrate",
+  "description": "Fan a large task out across parallel cloud agents via the Cursor SDK: planners publish tasks, workers hand off back up, and a script reconciles the tree from disk and git.",
+  "author": { "name": "Cursor", "email": "plugins@cursor.com" }
+}

@@ -1,0 +1,5 @@
+{
+  "name": "pr-review-canvas",
+  "description": "Render PR diffs as review canvases grouped by importance.",
+  "author": { "name": "Cursor", "email": "plugins@cursor.com" }
+}

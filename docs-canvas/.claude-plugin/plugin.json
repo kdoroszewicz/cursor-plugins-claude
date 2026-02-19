@@ -1,0 +1,5 @@
+{
+  "name": "docs-canvas",
+  "description": "Render documentation as a navigable canvas.",
+  "author": { "name": "Cursor", "email": "plugins@cursor.com" }
+}

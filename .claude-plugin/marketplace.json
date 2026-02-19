@@ -1,19 +1,123 @@
 {
-  "name": "cursor-plugins",
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "cursor-plugins-claude",
+  "description": "Official Cursor plugin marketplace: developer tools, framework rules, MCP integrations, and agent skills",
   "owner": {
     "name": "Cursor",
     "email": "plugins@cursor.com"
   },
   "plugins": [
     {
+      "name": "teaching",
+      "description": "Skill mapping, practice plans, and learning retrospectives. Builds personalized roadmaps with milestones and practice checkpoints, and runs periodic reviews to adjust based on progress.",
+      "source": "./teaching",
+      "category": "developer-tools",
+      "author": { "name": "Cursor", "email": "plugins@cursor.com" }
+    },
+    {
+      "name": "continual-learning",
+      "description": "Incrementally learns durable user preferences and workspace facts from transcript changes and keeps AGENTS.md up to date with plain bullet points.",
+      "source": "./continual-learning",
+      "category": "developer-tools",
+      "author": { "name": "Cursor", "email": "plugins@cursor.com" }
+    },
+    {
+      "name": "cursor-team-kit",
+      "description": "Internal engineering team workflows for CI, code review, shipping, control-cli, control-ui, verify-this, test reliability, code cleanup, and work summaries. Designed to work without requiring third-party service integrations.",
+      "source": "./cursor-team-kit",
+      "category": "developer-tools",
+      "author": { "name": "Cursor", "email": "plugins@cursor.com" }
+    },
+    {
+      "name": "thermos",
+      "description": "Thermo-nuclear branch review: deep correctness and security audits plus harsh code-quality rubrics, parallel subagents, thermos orchestration, and optional take-the-wheel and FSD merge-ready flows.",
+      "source": "./thermos",
+      "category": "developer-tools",
+      "author": { "name": "Cursor", "email": "plugins@cursor.com" }
+    },
+    {
+      "name": "create-plugin",
+      "description": "Scaffold and validate new agent plugins. Handles directory setup, manifest generation, and pre-submission quality checks for the marketplace.",
+      "source": "./create-plugin",
+      "category": "developer-tools",
+      "author": { "name": "Cursor", "email": "plugins@cursor.com" }
+    },
+    {
+      "name": "ralph-loop",
+      "description": "Continuous self-referential AI loops for iterative development, implementing the Ralph Wiggum technique. Run the agent in a while-true loop with the same prompt until task completion.",
+      "source": "./ralph-loop",
+      "category": "developer-tools",
+      "author": { "name": "Cursor", "email": "plugins@cursor.com" }
+    },
+    {
+      "name": "agent-compatibility",
+      "description": "CLI-backed repo compatibility scans plus agents that audit startup, validation, and docs against reality.",
+      "source": "./agent-compatibility",
+      "category": "developer-tools",
+      "author": { "name": "Cursor", "email": "plugins@cursor.com" }
+    },
+    {
+      "name": "cli-for-agent",
+      "description": "Patterns for designing CLIs that coding agents can run reliably: non-interactive flags, layered help with examples, pipelines, actionable errors, idempotency, and dry-run.",
+      "source": "./cli-for-agent",
+      "category": "developer-tools",
+      "author": { "name": "Cursor", "email": "plugins@cursor.com" }
+    },
+    {
+      "name": "pr-review-canvas",
+      "description": "Render PR diffs as review canvases grouped by importance.",
+      "source": "./pr-review-canvas",
+      "category": "developer-tools",
+      "author": { "name": "Cursor", "email": "plugins@cursor.com" }
+    },
+    {
+      "name": "docs-canvas",
+      "description": "Render documentation as a navigable canvas.",
+      "source": "./docs-canvas",
+      "category": "developer-tools",
+      "author": { "name": "Cursor", "email": "plugins@cursor.com" }
+    },
+    {
+      "name": "cursor-sdk",
+      "description": "Build apps, scripts, and automations with the TypeScript SDK.",
+      "source": "./cursor-sdk",
+      "category": "developer-tools",
+      "author": { "name": "Cursor", "email": "plugins@cursor.com" }
+    },
+    {
       "name": "origin-apps",
+      "description": "Skills for building on the Cursor Origin API. Fetch the live spec first, then follow the Origin rules for credentials, scopes, webhooks, paging, and errors. Includes a skill that plans the port of an existing GitHub App.",
       "source": "./origin-apps",
-      "description": "Skills for building on the Cursor Origin API. Fetch the live spec first, then follow the Origin rules for credentials, scopes, webhooks, paging, and errors. Includes a skill that plans the port of an existing GitHub App."
+      "category": "developer-tools",
+      "author": { "name": "Cursor", "email": "plugins@cursor.com" }
+    },
+    {
+      "name": "orchestrate",
+      "description": "Fan a large task out across parallel cloud agents via the Cursor SDK: planners publish tasks, workers hand off back up, and a script reconciles the tree from disk and git.",
+      "source": "./orchestrate",
+      "category": "developer-tools",
+      "author": { "name": "Cursor", "email": "plugins@cursor.com" }
     },
     {
       "name": "pstack",
+      "description": "if you want to go fast, go deep first. pstack helps you write less, but higher quality code. rigorous agent workflows you can parallelize with confidence.",
       "source": "./harness/pstack/claude-code",
-      "description": "if you want to go fast, go deep first. pstack helps you write less, but higher quality code. rigorous agent workflows you can parallelize with confidence."
+      "category": "developer-tools",
+      "author": { "name": "Lauren Tan" }
+    },
+    {
+      "name": "dyl-stack",
+      "description": "Dylan's agent style on top of pstack: root causes over symptom patches, The Algorithm before design, terse verified delivery, a PR review that fits in a paste, and Figma-to-UI with a visual judge.",
+      "source": "./dyl-stack",
+      "category": "developer-tools",
+      "author": { "name": "Cursor", "email": "plugins@cursor.com" }
+    },
+    {
+      "name": "grok-voice",
+      "description": "Add Grok voice to an app: realtime speech-to-speech, speech-to-text dictation, text-to-speech read-aloud, and a log-driven fix loop for voice sessions.",
+      "source": "./grok-voice",
+      "category": "developer-tools",
+      "author": { "name": "Cursor", "email": "plugins@cursor.com" }
     }
   ]
 }
