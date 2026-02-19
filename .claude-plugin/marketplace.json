@@ -1,0 +1,46 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "cursor-plugins-claude",
+  "description": "Official Cursor plugin marketplace: developer tools, framework rules, MCP integrations, and agent skills",
+  "owner": {
+    "name": "Cursor",
+    "email": "plugins@cursor.com"
+  },
+  "plugins": [
+    {
+      "name": "teaching",
+      "description": "Skill mapping, practice plans, and learning retrospectives.",
+      "source": "./teaching",
+      "category": "utilities",
+      "author": { "name": "Cursor", "email": "plugins@cursor.com" }
+    },
+    {
+      "name": "continual-learning",
+      "description": "Incremental transcript-driven memory updates for AGENTS.md using high-signal bullet points only.",
+      "source": "./continual-learning",
+      "category": "developer-tools",
+      "author": { "name": "Cursor", "email": "plugins@cursor.com" }
+    },
+    {
+      "name": "cursor-team-kit",
+      "description": "Internal team workflows used by Cursor developers for CI, code review, and shipping.",
+      "source": "./cursor-team-kit",
+      "category": "developer-tools",
+      "author": { "name": "Cursor", "email": "plugins@cursor.com" }
+    },
+    {
+      "name": "create-plugin",
+      "description": "Scaffold and validate new Cursor plugins.",
+      "source": "./create-plugin",
+      "category": "developer-tools",
+      "author": { "name": "Cursor", "email": "plugins@cursor.com" }
+    },
+    {
+      "name": "ralph-loop",
+      "description": "Iterative self-referential AI loops using the Ralph Wiggum technique.",
+      "source": "./ralph-loop",
+      "category": "developer-tools",
+      "author": { "name": "Cursor", "email": "plugins@cursor.com" }
+    }
+  ]
+}
