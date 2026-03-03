@@ -143,7 +143,7 @@ async function parseHookInput<T>(): Promise<T> {
   return JSON.parse(text) as T;
 }
 
-async function main(args: string[]): Promise<number> {
+async function main(): Promise<number> {
   try {
     const input = await parseHookInput<StopHookInput>();
     const state = loadState();
@@ -159,9 +159,9 @@ async function main(args: string[]): Promise<number> {
     const turnsSinceLastRun = state.turnsSinceLastRun + turnIncrement;
     const now = Date.now();
 
-    const trialEnabled =
-      args.includes("--trial") ||
-      parseBoolean(readEnvValue("CONTINUAL_LEARNING_TRIAL_MODE", "CONTINUOUS_LEARNING_TRIAL_MODE"));
+    const trialEnabled = parseBoolean(
+      readEnvValue("CONTINUAL_LEARNING_TRIAL_MODE", "CONTINUOUS_LEARNING_TRIAL_MODE")
+    );
     if (trialEnabled && countedTurn && state.trialStartedAtMs === null) {
       state.trialStartedAtMs = now;
     }
@@ -243,5 +243,5 @@ async function main(args: string[]): Promise<number> {
   }
 }
 
-const exitCode = await main(process.argv.slice(2));
+const exitCode = await main();
 process.exit(exitCode);
